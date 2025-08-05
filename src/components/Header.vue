@@ -1,15 +1,16 @@
 <template>
   <header
-    class="fixed top-0 left-1/2 -translate-x-1/2 w-full bg-grey text-stone-600 z-50 transition-transform duration-300"
+    ref="headerRef"
     :class="{ '-translate-y-full': isHidden }"
+    class="fixed top-0 left-1/2 -translate-x-1/2 w-full bg-grey text-dark z-50 transition-transform duration-300"
   >
-    <div class="flex flex-wrap justify-center gap-6 p-4">
+    <div class="flex flex-wrap justify-center items-center gap-6 p-4">
       <a href="#home" class="whitespace-nowrap font-semibold hover:text-stone-950 transition">Purdue ACM SIGAPP</a>        
       <a href="#about" class="whitespace-nowrap hover:text-stone-950 transition">About Us</a>        
       <a href="#officer" class="whitespace-nowrap hover:text-stone-950 transition">Current Officers</a>
       <a href="#project" class="whitespace-nowrap hover:text-stone-950 transition">Our Projects</a>
 
-      <button @click="handleClick" class="whitespace-nowrap bg-black text-white font-bold rounded-lg px-4 py-2 hover:bg-stone-800 transition">
+      <button @click="handleClick" class="whitespace-nowrap bg-dark text-white font-bold rounded-3xl px-4 py-2 hover:bg-stone-800 transition">
         Join Us
       </button>
     </div>
@@ -17,7 +18,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, provide } from 'vue'
+import { headerHeight } from '../globals'
 
 const isHidden = ref(false)
 let lastScrollY = 0
@@ -41,10 +43,35 @@ onUnmounted(() => {
 })
 
 const handleClick = () => {
-  window.location.href = "https://example.com/join"; 
+  // window.location.href = "https://example.com/join"; 
 }
+
+const headerRef = ref(null)
+
+const updateHeaderHeight = () => {
+  if (headerRef.value) {
+    const newHeight = headerRef.value.offsetHeight
+    if (headerHeight.value !== newHeight) {
+      headerHeight.value = newHeight
+    }
+  }
+}
+
+provide('headerHeight', headerHeight)
+
+onMounted(() => {
+  updateHeaderHeight()
+  window.addEventListener('resize', updateHeaderHeight)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateHeaderHeight)
+})
+
 </script>
 
 <style scoped>
-/* transition handled by Tailwind, but you can add easing if needed */
+:global(html) {
+  scroll-behavior: smooth;
+}
 </style>

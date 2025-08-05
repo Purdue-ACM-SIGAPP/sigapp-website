@@ -1,4 +1,4 @@
 <template>
-  <footer class="bg-stone-600 text-white text-center py-4">
+  <footer class="bg-dull-green text-white text-center py-4">
   </footer>
 </template>
