@@ -1,14 +1,16 @@
 <template>
-  <section id="officer" class="min-h-screen bg-white px-8 py-16 flex flex-col items-center">
+  <section class="min-h-screen bg-white px-8 py-16 flex flex-col items-center">
     <!-- Header -->
     <div class="flex flex-col items-center mb-12">
+      <DottedLine/>
+
+
       <!-- Title -->
       <h2 class="text-2xl md:text-3xl font-bold text-center">
         Say hello to our current <br />
         officers for 2025–2026!
       </h2>
     </div>
-    <DottedLine />
 
     <!-- Content Grid -->
     <div class="flex gap-6 items-start justify-center flex-wrap max-w-screen-xl w-full">
@@ -40,6 +42,6 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import DottedLine from '../components/DottedLine.vue';
 </script>

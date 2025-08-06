@@ -7,26 +7,29 @@
     <div class="flex flex-wrap justify-center items-center gap-6 p-4">
       <a
         href="#home"
-        class="whitespace-nowrap font-semibold hover:text-stone-950 transition"
+        class="whitespace-nowrap font-semibold hover:text-dark-green transition"
         >Purdue ACM SIGAPP</a
       >
-      <a href="#about" class="whitespace-nowrap hover:text-stone-950 transition"
+      <a
+        href="#about"
+        class="whitespace-nowrap hover:text-dark-green transition"
         >About Us</a
       >
       <a
         href="#officer"
-        class="whitespace-nowrap hover:text-stone-950 transition"
+        class="whitespace-nowrap hover:text-dark-green transition"
         >Current Officers</a
       >
       <a
         href="#project"
-        class="whitespace-nowrap hover:text-stone-950 transition"
+        class="whitespace-nowrap hover:text-dark-green transition"
         >Our Projects</a
       >
 
       <button
+        type="button"
         @click="handleClick"
-        class="whitespace-nowrap bg-dark text-white font-bold rounded-3xl px-4 py-2 hover:bg-stone-800 transition"
+        class="bg-dark text-white font-bold rounded-3xl px-4 py-2 hover:bg-gray-800 transition"
       >
         Join Us
       </button>
@@ -60,7 +63,7 @@ onUnmounted(() => {
 });
 
 const handleClick = () => {
-  // window.location.href = "https://example.com/join";
+  window.open("https://discord.gg/jKTWKYarGE", "_blank");
 };
 
 const headerRef = ref(null);
