@@ -20,4 +20,3 @@ import Project from "./sections/Project.vue";
     <Footer />
   </div>
 </template>
-

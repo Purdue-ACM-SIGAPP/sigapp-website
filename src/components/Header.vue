@@ -5,12 +5,29 @@
     class="fixed top-0 left-1/2 -translate-x-1/2 w-full bg-grey text-dark z-50 transition-transform duration-300"
   >
     <div class="flex flex-wrap justify-center items-center gap-6 p-4">
-      <a href="#home" class="whitespace-nowrap font-semibold hover:text-stone-950 transition">Purdue ACM SIGAPP</a>        
-      <a href="#about" class="whitespace-nowrap hover:text-stone-950 transition">About Us</a>        
-      <a href="#officer" class="whitespace-nowrap hover:text-stone-950 transition">Current Officers</a>
-      <a href="#project" class="whitespace-nowrap hover:text-stone-950 transition">Our Projects</a>
+      <a
+        href="#home"
+        class="whitespace-nowrap font-semibold hover:text-stone-950 transition"
+        >Purdue ACM SIGAPP</a
+      >
+      <a href="#about" class="whitespace-nowrap hover:text-stone-950 transition"
+        >About Us</a
+      >
+      <a
+        href="#officer"
+        class="whitespace-nowrap hover:text-stone-950 transition"
+        >Current Officers</a
+      >
+      <a
+        href="#project"
+        class="whitespace-nowrap hover:text-stone-950 transition"
+        >Our Projects</a
+      >
 
-      <button @click="handleClick" class="whitespace-nowrap bg-dark text-white font-bold rounded-3xl px-4 py-2 hover:bg-stone-800 transition">
+      <button
+        @click="handleClick"
+        class="whitespace-nowrap bg-dark text-white font-bold rounded-3xl px-4 py-2 hover:bg-stone-800 transition"
+      >
         Join Us
       </button>
     </div>
@@ -18,56 +35,55 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, provide } from 'vue'
-import { headerHeight } from '../globals'
+import { ref, onMounted, onUnmounted, provide } from "vue";
+import { headerHeight } from "../globals";
 
-const isHidden = ref(false)
-let lastScrollY = 0
+const isHidden = ref(false);
+let lastScrollY = 0;
 
 const handleScroll = () => {
-  const currentY = window.scrollY
+  const currentY = window.scrollY;
   if (currentY > lastScrollY && currentY > 50) {
-    isHidden.value = true  // Scrolling down, hide header
+    isHidden.value = true; // Scrolling down, hide header
   } else {
-    isHidden.value = false // Scrolling up, show header
+    isHidden.value = false; // Scrolling up, show header
   }
-  lastScrollY = currentY
-}
+  lastScrollY = currentY;
+};
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
+  window.addEventListener("scroll", handleScroll);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
+  window.removeEventListener("scroll", handleScroll);
+});
 
 const handleClick = () => {
-  // window.location.href = "https://example.com/join"; 
-}
+  // window.location.href = "https://example.com/join";
+};
 
-const headerRef = ref(null)
+const headerRef = ref(null);
 
 const updateHeaderHeight = () => {
   if (headerRef.value) {
-    const newHeight = headerRef.value.offsetHeight
+    const newHeight = headerRef.value.offsetHeight;
     if (headerHeight.value !== newHeight) {
-      headerHeight.value = newHeight
+      headerHeight.value = newHeight;
     }
   }
-}
+};
 
-provide('headerHeight', headerHeight)
+provide("headerHeight", headerHeight);
 
 onMounted(() => {
-  updateHeaderHeight()
-  window.addEventListener('resize', updateHeaderHeight)
-})
+  updateHeaderHeight();
+  window.addEventListener("resize", updateHeaderHeight);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('resize', updateHeaderHeight)
-})
-
+  window.removeEventListener("resize", updateHeaderHeight);
+});
 </script>
 
 <style scoped>
