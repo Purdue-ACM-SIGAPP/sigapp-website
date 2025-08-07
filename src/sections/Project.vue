@@ -1,5 +1,8 @@
 <template>
-  <section id="project" class="px-6 sm:px-8 py-20 relative overflow-hidden bg-white">
+  <section
+    id="project"
+    class="min-h-screen px-6 sm:px-8 py-20 relative overflow-hidden bg-white"
+  >
     <!-- Section Title -->
     <div class="text-3xl font-bold text-center text-gray-900 mb-4">
       Our Past Projects
@@ -8,8 +11,10 @@
     <!-- Section Description -->
     <div class="max-w-3xl mx-auto text-center text-gray-700 text-lg mb-12">
       These projects reflect what SIGAPP is all about —
-      <span class="font-medium text-black">solving real problems with practical, user-centered solutions</span>.
-      Every semester brings new challenges and fresh ideas, and we’re always excited to see what our members will build next.
+      <span class="font-medium text-black"
+        >solving real problems with practical, user-centered solutions</span
+      >. Every semester brings new challenges and fresh ideas, and we’re always
+      excited to see what our members will build next.
     </div>
 
     <!-- Decorative Divider -->
@@ -54,7 +59,6 @@
     </div>
   </section>
 </template>
-
 
 <script setup>
 import DottedLine from "../components/DottedLine.vue";

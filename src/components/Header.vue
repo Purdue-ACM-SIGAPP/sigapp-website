@@ -2,34 +2,34 @@
   <header
     ref="headerRef"
     :class="{ '-translate-y-full': isHidden }"
-    class="fixed top-0 left-1/2 -translate-x-1/2 w-full bg-grey text-dark z-50 transition-transform duration-300"
+    class="fixed top-0 w-full bg-grey text-dark z-50 transition-transform duration-300"
   >
     <div class="flex flex-wrap justify-center items-center gap-6 p-4">
       <a
         href="#home"
-        class="whitespace-nowrap font-semibold hover:text-dark-green transition"
+        class="font-semibold hover:text-dark-green transition"
         >Purdue ACM SIGAPP</a
       >
       <a
         href="#about"
-        class="whitespace-nowrap hover:text-dark-green transition"
+        class="hover:text-dark-green transition"
         >About Us</a
       >
       <a
         href="#officer"
-        class="whitespace-nowrap hover:text-dark-green transition"
+        class="hover:text-dark-green transition"
         >Current Officers</a
       >
       <a
         href="#project"
-        class="whitespace-nowrap hover:text-dark-green transition"
+        class="hover:text-dark-green transition"
         >Our Projects</a
       >
 
       <button
         type="button"
         @click="handleClick"
-        class="bg-dark text-white font-bold rounded-3xl px-4 py-2 hover:bg-gray-800 transition"
+        class="bg-dark text-white font-bold rounded-3xl px-4 py-2 hover:bg-dark-green transition"
       >
         Join Us
       </button>

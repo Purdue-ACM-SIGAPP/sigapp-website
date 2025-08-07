@@ -1,7 +1,7 @@
 <template>
   <section
     id="what-we-do"
-    class="min-h-screen px-6 md:px-12 py-20 bg-white flex flex-col items-center"
+    class="min-h-screen px-6 md:px-12 bg-white flex flex-col items-center"
   >
     <!-- Top Row -->
     <div
@@ -17,7 +17,7 @@
 
       <!-- Quote -->
       <div
-        class="text-dark text-right max-w-md mt-8 md:mt-0 md:text-left md:ml-auto"
+        class="text-gray-700 text-right max-w-md mt-8 md:mt-0 md:text-left md:ml-auto"
       >
         <p class="italic">
           “Whether you're an aspiring developer or an experienced coder, SIGAPP
