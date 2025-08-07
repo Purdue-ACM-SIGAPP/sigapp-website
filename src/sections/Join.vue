@@ -1,45 +1,39 @@
 <template>
-  <section id="join" class="px-8 py-16 relative overflow-hidden">
-    <div class="text-lg font-semibold mb-8 text-center">
-      Whether you're a coder, designer, or just curious — we’d love to have you!
-    </div>
-    <!-- Zigzag boxes -->
+  <section
+    id=""
+    class="min-h-screen px-8 py-16 flex justify-center flex-col items-center"
+  >
+    <!-- Top Row -->
     <div
-      class="flex justify-center gap-6 flex-wrap max-w-screen-xl mx-auto py-8"
+      class="w-full max-w-screen-xl flex flex-wrap justify-between items-start mb-12"
     >
-      <div
-        class="text-center justify-center flex items-center w-52 h-52 bg-black text-white rounded-3xl translate-y-8"
-      >
-        Build apps that people actually use
+      <div>
+        <h2 class="text-3xl font-bold mb-2">
+          Our Past, Present, and Future Projects
+        </h2>
+        <div class="pt-3 pb-10">
+          <DottedLine />
+        </div>
       </div>
-      <div
-        class="text-center justify-center flex items-center w-52 h-52 bg-dull text-white rounded-3xl -translate-y-8"
-      >
-        Learn modern dev workflows
-      </div>
-      <div
-        class="text-center justify-center flex items-center w-52 h-52 bg-black text-white rounded-3xl translate-y-8"
-      >
-        Join a welcoming community
-      </div>
-      <div
-        class="text-center justify-center flex items-center w-52 h-52 bg-dull text-white rounded-3xl -translate-y-8"
-      >
-        Gain experience that looks great on your resume
-      </div>
-      <div
-        class="text-center justify-center flex items-center w-52 h-52 bg-black text-white rounded-3xl translate-y-8"
-      >
-        No experience required — just bring curiosity!
+
+      <div class="text-right max-w-md mt-4 md:mt-0">
+        <p>
+          “I had a great time <br />
+          building up my engineering skills <br />
+          while making connections in club” – Someone’s name
+        </p>
       </div>
     </div>
-    <!-- Dots: Bottom right -->
-    <div class="absolute bottom-0 right-0 pb-4 pr-4">
-      <DottedLine />
+
+    <!-- Bottom: Three boxes -->
+    <div class="flex flex-wrap justify-center gap-6 w-full max-w-screen-xl">
+      <div class="w-[90%] md:w-[30%] h-[500px] bg-dull rounded-3xl"></div>
+      <div class="w-[90%] md:w-[30%] h-[500px] bg-black rounded-3xl"></div>
+      <div class="w-[90%] md:w-[30%] h-[500px] bg-dull rounded-3xl"></div>
     </div>
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import DottedLine from "../components/DottedLine.vue";
 </script>

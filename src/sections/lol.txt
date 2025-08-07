@@ -1,0 +1,116 @@
+Whether you're a coder, designer, or just curious — we’d love to have you!
+Build apps that people actually useLearn modern dev workflows
+Join a welcoming community
+Gain experience that looks great on your resume
+No experience required — just bring curiosity!
+
+WRITE FOR BUCKETLIST
+
+
+Based on the text you provided, here’s a clean and compelling webpage content draft for the **Purdue ACM SIGAPP** homepage. It includes clear section headings, a welcoming tone, and structured layout designed for a modern app development club website.
+
+---
+
+## 🟢 Purdue ACM SIGAPP
+
+### Purdue’s Premier App Development Club
+
+---
+
+### 👋 Who We Are
+
+We are **SIGAPP** — Purdue's **Special Interest Group for Applied Computing** under the **Association for Computing Machinery (ACM)**. At SIGAPP, we **design and build real apps** that solve real problems, both on and off campus.
+
+Whether you're an aspiring developer or an experienced coder, SIGAPP is your launchpad for building software with purpose, while gaining real-world experience in a collaborative environment.
+
+---
+
+### 💡 What We Do
+
+#### 🚀 Real-World Apps
+
+Our projects go beyond class assignments — they solve real problems that our members care about. You’ll be building something that you (and others) will actually want to use.
+
+#### 👥 Real-World Experience
+
+We model our workflows on those used by top tech companies — think Git, sprints, code reviews — but in a fun, low-pressure setting. You’ll learn what it’s like to work on a **real dev team**.
+
+#### 📚 Real-World Education
+
+No experience? No problem! We welcome members from all backgrounds and skill levels. Our experienced team will help you ramp up quickly, whether you’re learning your first programming language or shipping your first full-stack app.
+
+---
+
+### 🛠️ Tech Stack
+
+We build with modern, industry-relevant tools:
+
+* **Frontend**: React Native, Flutter (Dart), Swift
+* **Backend**: ASP.NET (C#), Java
+* **Database**: MongoDB
+* **DevOps**: Docker
+
+We're always open to exploring **new technologies** if they fit our project needs!
+
+---
+
+### 🧑‍💼 Our Leadership
+
+#### Soleil Pham
+
+**President**
+Sophomore in Computer Science (Machine Intelligence & Cyber Security tracks)
+
+#### David Panek
+
+**Vice President**
+Junior in Computer Science (Machine Learning track)
+
+There are many ways to grow into leadership — become a **Team Lead** or even an **Officer** as you gain experience!
+
+---
+
+### 📱 Our Past Projects
+
+#### SafeWalk
+
+A modernization of campus blue light buttons. Request a police escort on campus with an Uber-like experience.
+
+#### Purdue Laundry
+
+Check washer and dryer availability in real-time — no more wasted laundry trips.
+
+#### CoRec Monitor
+
+Live updates on facility usage at the Purdue CoRec. Plan your workouts smarter.
+
+#### BoilerFaves
+
+Tag your favorite dining hall meals and get notified when they’re served. Now part of the official Purdue Dining app!
+
+---
+
+### 💬 Join Us
+
+Whether you're a coder, designer, or just curious — we’d love to have you!
+
+👉 **Join our [Discord](#)** for the latest meeting times and updates.
+👉 Check out our [Blog](#) for project highlights and announcements.
+
+---
+
+### 🧠 Why SIGAPP?
+
+* Build apps that people actually use
+* Learn modern dev workflows
+* Join a welcoming community
+* Gain experience that looks great on your resume
+* No experience required — just bring curiosity!
+
+---
+
+Let’s build something awesome — together. 💚
+
+---
+
+Would you like this styled as a full HTML + Tailwind page?

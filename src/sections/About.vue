@@ -1,47 +1,37 @@
 <template>
   <section
     id="about"
-    class="min-h-screen flex flex-col items-start justify-center px-10 py-16 relative"
+    class="min-h-screen w-full bg-white px-6 md:px-10 py-20 flex flex-col items-center text-gray-800"
   >
-    <h2 class="text-3xl font-bold mb-4">
-      What is Purdue ACM SIGAPP <br />
-      <span class="text-lg font-semibold">(AKA SIGAPP)</span>
-    </h2>
-    <DottedLine />
-
-    <div class="mt-8 space-y-6 max-w-3xl text-base text-gray-800">
-      <p>
-        We are the SIGAPP (Special Interest Group for Applied Computing) sub-club under Purdue’s ACM (Association for Computing Machinery) chapter. What this really means is that we make apps, and there are a couple of important aspects as to how we do that:
-      </p>
-      <ul class="list-disc pl-6 space-y-2">
-        <li>
-          <strong>Real-World Apps:</strong> We make apps that have a real purpose. Rather than a class project, we focus on projects that our members are interested in working on – and would be interested in using after completion, too.
-        </li>
-        <li>
-          <strong>Real-World Experience:</strong> We do our best to create a team-based workflow that mirrors major tech companies – without stress. We help members understand real contribution processes in a low-pressure environment.
-        </li>
-        <li>
-          <strong>Real-World Education:</strong> We expect absolutely no prior experience from members joining. Our experienced members can help you get up to speed no matter what level you’re currently at. You’ll be contributing in no time!
-        </li>
-      </ul>
-      <p>
-        Currently, we use <strong>React Native</strong> (cross-platform JavaScript UI framework based on React) for our front-end and <strong>ASP.NET</strong> (Microsoft’s flagship server-side web framework, written in C#) for our back-end. We have also used technologies like MongoDB, Docker, and Swift for various projects.
-      </p>
-      <p>
-        We have historically used <strong>Flutter</strong> (powered by Google’s language Dart – don’t worry, it’s easy to learn!) for our apps and <strong>Java</strong> for the servers behind our apps. Again, no experience is required or expected coming in. And we’re also open to exploring new technology if it fits our projects!
-      </p>
+    <!-- Section Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+        Who We Are
+      </h2>
+      <DottedLine class="mx-auto" />
     </div>
 
-    <div class="relative mt-20 h-[500px] w-full max-w-7xl">
-      <!-- Black box on right -->
-      <div
-        class="absolute right-0 bottom-0 w-[85%] h-[100%] bg-black rounded-3xl z-10"
-      ></div>
+    <!-- Content -->
+    <div class="w-full max-w-6xl flex flex-col-reverse lg:flex-row items-center gap-12">
+      <!-- Text Content -->
+      <div class="w-full lg:w-1/2 text-lg leading-relaxed space-y-6">
+        <p>
+          We are <strong>SIGAPP</strong> — Purdue's Special Interest Group for Applied Computing under the <strong>Association for Computing Machinery (ACM)</strong>.
+        </p>
+        <p>
+          At SIGAPP, we focus on designing and building real-world applications that solve practical problems — both on campus and in the broader community.
+        </p>
+      </div>
 
-      <!-- Gray box on left, overlapping -->
-      <div
-        class="absolute left-0 bottom-10 w-[40%] h-[60%] bg-[#4B5A48] rounded-3xl z-20"
-      ></div>
+      <!-- Image Carousel -->
+      <div class="w-full lg:w-1/2">
+        <Carousel />
+      </div>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import DottedLine from "../components/DottedLine.vue";
+import Carousel from "../components/Carousel.vue";
+</script>

@@ -1,60 +1,61 @@
 <template>
-  <div class="w-[90%] md:w-[30%] h-[500px] bg-dull rounded-3xl overflow-hidden relative">
-    <!-- Slides -->
+  <div class="relative w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-lg">
     <div
-      class="h-full w-full flex transition-transform duration-700"
+      class="flex transition-transform duration-700 ease-in-out"
       :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
     >
       <div
-        v-for="(_, index) in slideCount"
+        v-for="(img, index) in images"
         :key="index"
-        class="w-full flex-shrink-0 h-full flex items-center justify-center"
-      >
-        <slot :name="`slide-${index}`" />
-      </div>
+        class="min-w-full aspect-video bg-center bg-cover"
+        :style="{ backgroundImage: `url(${img})` }"
+      ></div>
     </div>
 
-    <!-- Dot Indicators -->
-    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
       <span
-        v-for="(_, index) in slideCount"
-        :key="index"
-        class="w-3 h-3 rounded-full cursor-pointer"
+        v-for="(img, index) in images"
+        :key="'dot-' + index"
+        class="w-2 h-2 rounded-full cursor-pointer"
         :class="currentIndex === index ? 'bg-white' : 'bg-gray-400'"
-        @click="goToSlide(index)"
+        @click="currentIndex = index"
       ></span>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onUnmounted, useSlots, defineEmits } from 'vue'
+<script>
+import { ref, onMounted, onUnmounted } from 'vue'
+import BUCKETLIST from '../assets/BUCKETLIST24-25.jpg'
+import SIGAPP24 from '../assets/SIGAPP24-25.jpg'
+import SIGAPP21 from '../assets/SIGAPP21-22.png'
 
-const emit = defineEmits<{
-  (e: 'update:index', index: number): void
-}>()
+export default {
+  name: 'Carousel',
+  setup() {
+    const images = [SIGAPP24, BUCKETLIST, SIGAPP21]
+    const currentIndex = ref(0)
 
-const slots = useSlots()
-const currentIndex = ref(0)
+    function prev() {
+      currentIndex.value = (currentIndex.value - 1 + images.length) % images.length
+    }
 
-// Automatically determine number of slides
-const slideCount = Object.keys(slots).filter(key => key.startsWith('slide-')).length
+    function next() {
+      currentIndex.value = (currentIndex.value + 1) % images.length
+    }
 
-let interval: ReturnType<typeof setInterval> | null = null
+    let intervalId
+    onMounted(() => {
+      intervalId = setInterval(() => {
+        next()
+      }, 3000)
+    })
 
-const goToSlide = (index: number) => {
-  currentIndex.value = index
-  emit('update:index', index)
+    onUnmounted(() => {
+      clearInterval(intervalId)
+    })
+
+    return { images, currentIndex, prev, next }
+  }
 }
-
-onMounted(() => {
-  interval = setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % slideCount
-    emit('update:index', currentIndex.value)
-  }, 3000)
-})
-
-onUnmounted(() => {
-  if (interval) clearInterval(interval)
-})
 </script>
