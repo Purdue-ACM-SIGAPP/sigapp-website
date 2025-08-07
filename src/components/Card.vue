@@ -21,7 +21,7 @@
           class="absolute inset-0 backface-hidden rotate-y-180 rounded-3xl bg-white flex items-center justify-center p-6 text-center shadow-xl"
         >
           <slot>
-            <p class="text-gray-800 font-medium text-sm leading-relaxed">
+            <p class="text-dark font-medium text-sm leading-relaxed">
               {{ description }}
             </p>
           </slot>

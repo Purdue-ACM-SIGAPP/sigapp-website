@@ -1,10 +1,10 @@
 <template>
   <section
     id="about"
-    class="min-h-screen w-full bg-white px-6 md:px-10 py-20 flex flex-col items-center text-gray-800"
+    class="min-h-screen w-full bg-white px-6 md:px-10 py-20 flex flex-col items-center text-dark"
   >
     <!-- Section Title -->
-    <div class="text-center mb-12">
+    <div class="pt-10 text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
         Who We Are
       </h2>
