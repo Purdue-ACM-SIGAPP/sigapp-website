@@ -22,7 +22,7 @@
           is your launchpad for building software with purpose, while gaining
           real-world experience in a collaborative environment.”
         </p>
-        <p class="mt-2 font-medium">– Colin Wu</p>
+        <p class="mt-2 font-medium">– Tommy Lane, Former SIGAPP President (2022–2024)</p>
       </div>
     </div>
 

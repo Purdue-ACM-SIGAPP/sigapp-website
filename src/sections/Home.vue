@@ -29,11 +29,11 @@
           type="button"
           @mouseenter="isArrowHovered = true"
           @mouseleave="isArrowHovered = false"
-          class="group inline-flex items-center bg-black text-white rounded-full font-semibold hover:bg-dark-green transition"
+          class="group inline-flex items-center bg-dark text-white rounded-full font-semibold hover:bg-dark-green transition"
         >
           <span class="pl-6 pr-3 py-3">Join our discord server</span>
           <span
-            class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center"
+            class="w-10 h-10 bg-white text-dark rounded-full flex items-center justify-center"
           >
             <img
               :src="isArrowHovered ? arrow_green : arrow"
@@ -44,6 +44,9 @@
           </span>
           <span class="ml-1"></span>
         </button>
+        <p class="text-sm text-gray-500">
+          *No experience required — join our Discord to become a member!
+        </p>
 
         <div class="flex gap-4 justify-center md:justify-start pt-2">
           <img
@@ -62,6 +65,15 @@
             @click="openInstagram"
             @mouseenter="isInstagramHovered = true"
             @mouseleave="isInstagramHovered = false"
+            draggable="false"
+          />
+          <img
+            :src="isGithubHovered ? github_green : github"
+            alt="GitHub"
+            class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            @click="openGithub"
+            @mouseenter="isGithubHovered = true"
+            @mouseleave="isGithubHovered = false"
             draggable="false"
           />
         </div>
@@ -92,11 +104,14 @@ import instagram from "../assets/instagram.png";
 import discord_green from "../assets/discord_green.png";
 import arrow_green from "../assets/right-arrow_green.png";
 import instagram_green from "../assets/instagram_green.png";
+import github from "../assets/github.png";
+import github_green from "../assets/github_green.png";
 
 const paddingTop = ref(headerHeight.value);
 
 const isDiscordHovered = ref(false);
 const isInstagramHovered = ref(false);
+const isGithubHovered = ref(false);
 const isArrowHovered = ref(false);
 
 watch(headerHeight, (newHeight) => {
@@ -109,5 +124,9 @@ const openDiscord = () => {
 
 const openInstagram = () => {
   window.open("https://www.instagram.com/purduesigapp", "_blank");
+};
+
+const openGithub = () => {
+  window.open("https://github.com/Purdue-ACM-SIGAPP", "_blank");
 };
 </script>

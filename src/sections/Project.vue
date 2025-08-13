@@ -11,7 +11,7 @@
     <!-- Section Description -->
     <div class="max-w-3xl mx-auto text-center text-gray-700 text-lg mb-12">
       These projects reflect what SIGAPP is all about —
-      <span class="font-medium text-black"
+      <span class="font-medium text-dark"
         >solving real problems with practical, user-centered solutions</span
       >. Every semester brings new challenges and fresh ideas, and we’re always
       excited to see what our members will build next.
