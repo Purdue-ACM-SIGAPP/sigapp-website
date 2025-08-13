@@ -1,7 +1,7 @@
 <template>
   <section
     id="about"
-    class="min-h-screen w-full bg-white px-6 md:px-10 py-20 flex flex-col items-center text-dark"
+    class="min-h-[80vh] py-16 w-full bg-white px-6 md:px-10 py-20 flex flex-col items-center text-dark"
   >
     <!-- Section Title -->
     <div class="pt-10 text-center mb-12">

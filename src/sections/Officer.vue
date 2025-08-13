@@ -1,7 +1,7 @@
 <template>
   <section
     id="officer"
-    class="min-h-screen bg-white px-6 py-16 flex flex-col items-center"
+    class="min-h-[80vh] py-16 bg-white px-6 py-16 flex flex-col items-center"
   >
     <!-- Header (Mobile) -->
     <div class="text-center mb-12 block lg:hidden">
@@ -19,22 +19,22 @@
       <!-- Left Column -->
       <div class="flex flex-col gap-8 items-center">
         <Card
-          name="Officer Name"
-          description="Officer description"
-          :image="safewalk"
+          name="Soleil Pham"
+          description="President"
+          :image="soleil"
           class="w-[260px] aspect-square rounded-2xl"
         />
         <div class="flex gap-4">
           <Card
-            name="Officer Name"
-            description="Officer description"
-            :image="safewalk"
+            name="Colin Wu"
+            description="Front End Lead"
+            :image="colin"
             class="w-[140px] aspect-square rounded-2xl"
           />
           <Card
-            name="Officer Name"
-            description="Officer description"
-            :image="safewalk"
+            name="Justin Puthenpurayil"
+            description="Front End Lead"
+            :image="justin"
             class="w-[140px] aspect-square rounded-2xl"
           />
         </div>
@@ -51,9 +51,9 @@
           <DottedLine class="mt-6" />
         </div>
         <Card
-          name="Officer Name"
-          description="Officer description"
-          :image="safewalk"
+          name="David Panek"
+          description="Vice President"
+          :image="david"
           class="w-[260px] aspect-square rounded-2xl"
         />
       </div>
@@ -61,21 +61,21 @@
       <!-- Right Column -->
       <div class="flex flex-col gap-6 items-center">
         <Card
-          name="Officer Name"
-          description="Officer description"
-          :image="safewalk"
+          name="Andrew Liu"
+          description="Back End Lead"
+          :image="andrew"
           class="w-[140px] aspect-square rounded-2xl"
         />
         <Card
-          name="Officer Name"
-          description="Officer description"
-          :image="safewalk"
+          name="Jonnen Chong"
+          description="Back End Lead"
+          :image="jonnen"
           class="w-[140px] aspect-square rounded-2xl"
         />
         <Card
-          name="Officer Name"
-          description="Officer description"
-          :image="safewalk"
+          name="Jack"
+          description="Server Manager"
+          :image="user"
           class="w-[140px] aspect-square rounded-2xl"
         />
       </div>
@@ -86,5 +86,11 @@
 <script setup lang="ts">
 import DottedLine from "../components/DottedLine.vue";
 import Card from "../components/Card.vue";
-import safewalk from "../assets/safewalk.jpg";
+import soleil from "../assets/soleil.jpeg";
+import andrew from "../assets/andrew.jpeg";
+import colin from "../assets/colin.jpeg";
+import jonnen from "../assets/jonnen.jpeg";
+import david from "../assets/david.jpeg";
+import justin from "../assets/justin.jpeg";
+import user from "../assets/user.png";
 </script>

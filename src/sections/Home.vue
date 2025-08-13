@@ -1,7 +1,7 @@
 <template>
   <section
     id="home"
-    class="min-h-screen flex flex-col"
+    class="min-h-[80vh] py-16 flex flex-col"
     :style="{ paddingTop: paddingTop + 'px' }"
   >
     <Banner />
@@ -27,6 +27,8 @@
         <button
           @click="openDiscord"
           type="button"
+          @mouseenter="isArrowHovered = true"
+          @mouseleave="isArrowHovered = false"
           class="group inline-flex items-center bg-black text-white rounded-full font-semibold hover:bg-dark-green transition"
         >
           <span class="pl-6 pr-3 py-3">Join our discord server</span>
@@ -34,7 +36,7 @@
             class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center"
           >
             <img
-              :src="arrow"
+              :src="isArrowHovered ? arrow_green : arrow"
               alt="arrow"
               class="w-5 h-5 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
               draggable="false"
@@ -45,17 +47,21 @@
 
         <div class="flex gap-4 justify-center md:justify-start pt-2">
           <img
-            :src="discord"
+            :src="isDiscordHovered ? discord_green : discord"
             alt="Discord"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
             @click="openDiscord"
+            @mouseenter="isDiscordHovered = true"
+            @mouseleave="isDiscordHovered = false"
             draggable="false"
           />
           <img
-            :src="instagram"
+            :src="isInstagramHovered ? instagram_green : instagram"
             alt="Instagram"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
             @click="openInstagram"
+            @mouseenter="isInstagramHovered = true"
+            @mouseleave="isInstagramHovered = false"
             draggable="false"
           />
         </div>
@@ -83,8 +89,15 @@ import logo from "../assets/logo.png";
 import arrow from "../assets/right-arrow.png";
 import discord from "../assets/discord.png";
 import instagram from "../assets/instagram.png";
+import discord_green from "../assets/discord_green.png";
+import arrow_green from "../assets/right-arrow_green.png";
+import instagram_green from "../assets/instagram_green.png";
 
 const paddingTop = ref(headerHeight.value);
+
+const isDiscordHovered = ref(false);
+const isInstagramHovered = ref(false);
+const isArrowHovered = ref(false);
 
 watch(headerHeight, (newHeight) => {
   paddingTop.value = newHeight;

@@ -1,7 +1,7 @@
 <template>
   <section
     id="project"
-    class="min-h-screen px-6 sm:px-8 py-20 relative overflow-hidden bg-white"
+    class="min-h-[80vh] py-16 px-6 sm:px-8 py-20 relative overflow-hidden bg-white"
   >
     <!-- Section Title -->
     <div class="text-3xl font-bold text-center text-gray-900 mb-4">
@@ -53,7 +53,7 @@
       <Card
         class="w-52 aspect-square rounded-3xl sm:translate-y-8"
         :image="bucketlist"
-        description="Explore our Bucket List of goals, missions, and milestones!"
+        description="Discover and share personal goals with others. Create your own bucket list and join friends on their adventures!"
         name="Bucket List"
       />
     </div>
