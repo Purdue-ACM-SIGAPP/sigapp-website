@@ -11,7 +11,6 @@
         >
           <img
             :src="image"
-            alt="Card Front"
             class="w-full h-full object-cover"
           />
         </div>
