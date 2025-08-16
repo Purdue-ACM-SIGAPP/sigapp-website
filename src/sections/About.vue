@@ -19,7 +19,7 @@
           We are <strong>SIGAPP</strong> — Purdue's Special Interest Group for
           Applied Computing under the
           <a
-            href="https://www.acm.org/"
+            href="https://acm.cs.purdue.edu/"
             target="_blank"
             rel="noopener noreferrer"
             class="underline font-semibold text-dark-green"
