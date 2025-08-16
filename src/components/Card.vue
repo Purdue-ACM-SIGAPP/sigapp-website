@@ -1,13 +1,9 @@
 <template>
   <div class="flex flex-col items-center gap-4 max-w-xs">
     <!-- Flip Card -->
-    <div
-      class="aspect-square w-full group perspective"
-      @click="isFlipped = !isFlipped"
-    >
+    <div class="aspect-square w-full group perspective">
       <div
         class="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180"
-        :class="{ 'rotate-y-180': isFlipped }"
       >
         <!-- Front Face -->
         <div
@@ -37,15 +33,13 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref } from "vue";
+import { defineProps } from "vue";
 
 defineProps<{
   image: string;
   description?: string;
   name?: string;
 }>();
-
-const isFlipped = ref(false);
 </script>
 
 <style scoped>
