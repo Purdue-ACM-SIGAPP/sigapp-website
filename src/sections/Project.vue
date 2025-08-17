@@ -66,6 +66,6 @@ import purdueLaundry from "../assets/purdueLaundry.png";
 import safewalk from "../assets/safewalk.jpg";
 import purdueCorecMonitor from "../assets/purdueCorecMonitor.png";
 import boilerFaves from "../assets/boilerFaves.png";
-
+import bucketlist from "../assets/bucketlist.png";
 import Card from "../components/Card.vue";
 </script>
