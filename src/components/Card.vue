@@ -18,13 +18,23 @@
 
         <!-- Back Face -->
         <div
-          class="absolute inset-0 backface-hidden rotate-y-180 rounded-3xl bg-white flex items-center justify-center p-6 text-center shadow-xl"
+          class="absolute inset-0 backface-hidden rotate-y-180 rounded-3xl bg-white flex flex-col items-center justify-center p-6 text-center shadow-xl gap-4"
         >
           <slot>
             <p class="text-dark font-medium text-sm leading-relaxed">
               {{ description }}
             </p>
           </slot>
+          <img
+            v-if="props.showLinkedin"
+            :src="isLinkedinHovered ? linkedin_green : linkedin"
+            alt="LinkedIn"
+            class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            @click="openLinkedin"
+            @mouseenter="isLinkedinHovered = true"
+            @mouseleave="isLinkedinHovered = false"
+            draggable="false"
+          />
         </div>
       </div>
     </div>
@@ -38,14 +48,25 @@
 
 <script setup lang="ts">
 import { defineProps, ref } from "vue";
+import linkedin from "../assets/linkedin.png"
+import linkedin_green from "../assets/linkedin_green.png";
 
-defineProps<{
+const props = defineProps<{
   image: string;
   description?: string;
   name?: string;
+  showLinkedin?: string;
 }>();
 
 const isFlipped = ref(false);
+
+const isLinkedinHovered = ref(false);
+
+const openLinkedin = () => {
+  if (props.showLinkedin) {
+    window.open(props.showLinkedin, "_blank");
+  }
+};
 </script>
 
 <style scoped>
