@@ -11,8 +11,8 @@
           :alt="icon.name"
           :aria-label="icon.name"
           class="w-8 h-8 cursor-pointer transition-transform duration-200 ease-in-out active:scale-90 hover:scale-125"
-          @click="icon.action"
           draggable="false"
+          @click="icon.action"
         />
       </div>
     </div>

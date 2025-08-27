@@ -23,22 +23,22 @@
           description="President"
           :image="soleil"
           class="w-[260px] aspect-square rounded-2xl"
-          showLinkedin="https://www.linkedin.com/in/chan-nhu-p-4876a127a/"
-                  />
+          show-linkedin="https://www.linkedin.com/in/chan-nhu-p-4876a127a/"
+        />
         <div class="flex gap-4">
           <Card
             name="Colin Wu"
             description="Front End Lead"
             :image="colin"
             class="w-[140px] aspect-square rounded-2xl"
-            showLinkedin="https://www.linkedin.com/in/colinwu0403/"
+            show-linkedin="https://www.linkedin.com/in/colinwu0403/"
           />
           <Card
             name="Justin Puthenpurayil"
             description="Front End Lead"
             :image="justin"
             class="w-[140px] aspect-square rounded-2xl"
-            showLinkedin="https://www.linkedin.com/in/justinputhenpurayil/"
+            show-linkedin="https://www.linkedin.com/in/justinputhenpurayil/"
           />
         </div>
       </div>
@@ -58,7 +58,7 @@
           description="Vice President"
           :image="david"
           class="w-[260px] aspect-square rounded-2xl"
-          showLinkedin="https://www.linkedin.com/in/david-panek-1046b0263/"
+          show-linkedin="https://www.linkedin.com/in/david-panek-1046b0263/"
         />
       </div>
 
@@ -69,14 +69,14 @@
           description="Back End Lead"
           :image="andrew"
           class="w-[140px] aspect-square rounded-2xl"
-          showLinkedin="https://www.linkedin.com/in/andrew-liu-715029250/"
+          show-linkedin="https://www.linkedin.com/in/andrew-liu-715029250/"
         />
         <Card
           name="Jonnen Chong"
           description="Back End Lead"
           :image="jonnen"
           class="w-[140px] aspect-square rounded-2xl"
-          showLinkedin="https://www.linkedin.com/in/jonnen-chong/"
+          show-linkedin="https://www.linkedin.com/in/jonnen-chong/"
         />
         <Card
           name="Jack Reynolds"
@@ -99,5 +99,4 @@ import jonnen from "../assets/jonnen.jpeg";
 import david from "../assets/david.jpeg";
 import justin from "../assets/justin.jpeg";
 import jack from "../assets/jack.jpg";
-
 </script>

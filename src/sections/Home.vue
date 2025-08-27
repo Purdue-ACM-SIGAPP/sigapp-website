@@ -25,11 +25,11 @@
         </p>
 
         <button
-          @click="openDiscord"
           type="button"
+          class="group inline-flex items-center bg-dark text-white rounded-full font-semibold hover:bg-dark-green transition"
+          @click="openDiscord"
           @mouseenter="isArrowHovered = true"
           @mouseleave="isArrowHovered = false"
-          class="group inline-flex items-center bg-dark text-white rounded-full font-semibold hover:bg-dark-green transition"
         >
           <span class="pl-6 pr-3 py-3">Join our discord server</span>
           <span
@@ -53,28 +53,28 @@
             :src="isDiscordHovered ? discord_green : discord"
             alt="Discord"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            draggable="false"
             @click="openDiscord"
             @mouseenter="isDiscordHovered = true"
             @mouseleave="isDiscordHovered = false"
-            draggable="false"
           />
           <img
             :src="isInstagramHovered ? instagram_green : instagram"
             alt="Instagram"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            draggable="false"
             @click="openInstagram"
             @mouseenter="isInstagramHovered = true"
             @mouseleave="isInstagramHovered = false"
-            draggable="false"
           />
           <img
             :src="isGithubHovered ? github_green : github"
             alt="GitHub"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            draggable="false"
             @click="openGithub"
             @mouseenter="isGithubHovered = true"
             @mouseleave="isGithubHovered = false"
-            draggable="false"
           />
         </div>
       </div>

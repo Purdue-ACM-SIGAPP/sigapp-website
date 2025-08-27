@@ -30,10 +30,10 @@
             :src="isLinkedinHovered ? linkedin_green : linkedin"
             alt="LinkedIn"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            draggable="false"
             @click="openLinkedin"
             @mouseenter="isLinkedinHovered = true"
             @mouseleave="isLinkedinHovered = false"
-            draggable="false"
           />
         </div>
       </div>
@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 import { defineProps, ref } from "vue";
-import linkedin from "../assets/linkedin.png"
+import linkedin from "../assets/linkedin.png";
 import linkedin_green from "../assets/linkedin_green.png";
 
 const props = defineProps<{

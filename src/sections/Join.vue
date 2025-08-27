@@ -22,7 +22,9 @@
           is your launchpad for building software with purpose, while gaining
           real-world experience in a collaborative environment.”
         </p>
-        <p class="mt-2 font-medium">– Tommy Lane, Former SIGAPP President (2022–2024)</p>
+        <p class="mt-2 font-medium">
+          – Tommy Lane, Former SIGAPP President (2022–2024)
+        </p>
       </div>
     </div>
 
@@ -71,10 +73,10 @@ import { defineComponent, h } from "vue";
 
 const InfoCard = defineComponent({
   props: {
-    title: String,
-    bg: String,
-    text: String,
-    highlight: String,
+    title: { type: String, required: true },
+    bg: { type: String, required: true },
+    text: { type: String, required: true },
+    highlight: { type: String, required: true },
   },
   setup(props, { slots }) {
     return () =>

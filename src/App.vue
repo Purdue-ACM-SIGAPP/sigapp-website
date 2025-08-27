@@ -9,11 +9,11 @@ import Join from "./sections/Join.vue";
 </script>
 
 <template>
-    <Header />
-    <Home />
-    <About />
-    <Join />
-    <Officer />
-    <Project />
-    <Footer />
+  <Header />
+  <Home />
+  <About />
+  <Join />
+  <Officer />
+  <Project />
+  <Footer />
 </template>

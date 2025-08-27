@@ -5,31 +5,21 @@
     class="fixed top-0 w-full bg-grey text-dark z-50 transition-transform duration-300"
   >
     <div class="flex flex-wrap justify-center items-center gap-6 p-4">
-      <a
-        href="#home"
-        class="font-semibold hover:text-dark-green transition"
+      <a href="#home" class="font-semibold hover:text-dark-green transition"
         >Purdue ACM SIGAPP</a
       >
-      <a
-        href="#about"
-        class="hover:text-dark-green transition"
-        >About Us</a
-      >
-      <a
-        href="#officer"
-        class="hover:text-dark-green transition"
+      <a href="#about" class="hover:text-dark-green transition">About Us</a>
+      <a href="#officer" class="hover:text-dark-green transition"
         >Current Officers</a
       >
-      <a
-        href="#project"
-        class="hover:text-dark-green transition"
+      <a href="#project" class="hover:text-dark-green transition"
         >Our Projects</a
       >
 
       <button
         type="button"
-        @click="handleClick"
         class="bg-dark text-white font-bold rounded-3xl px-4 py-2 hover:bg-dark-green transition"
+        @click="handleClick"
       >
         Join Us
       </button>
