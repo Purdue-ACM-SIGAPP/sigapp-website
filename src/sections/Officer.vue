@@ -84,6 +84,13 @@
           :image="jack"
           class="w-[140px] aspect-square rounded-2xl"
         />
+        <Card
+          name="Isabel Fuh"
+          description="Marketing Lead"
+          :image="isabel"
+          class="w-[140px] aspect-square rounded-2xl"
+          show-linkedin="https://www.linkedin.com/in/isabel-fuh/"
+        />
       </div>
     </div>
   </section>
@@ -99,4 +106,5 @@ import jonnen from "../assets/jonnen.jpeg";
 import david from "../assets/david.jpeg";
 import justin from "../assets/justin.jpeg";
 import jack from "../assets/jack.jpg";
+import isabel from "../assets/isabel_fuh.jpg";
 </script>
