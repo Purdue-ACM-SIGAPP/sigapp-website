@@ -4,8 +4,6 @@
     class="min-h-[80vh] py-16 flex flex-col"
     :style="{ paddingTop: paddingTop + 'px' }"
   >
-    <Banner />
-
     <div
       class="w-full max-w-screen-lg mx-auto px-6 pt-20 grid md:grid-cols-2 items-center gap-12"
     >
@@ -96,7 +94,6 @@
 import { ref, watch } from "vue";
 import { headerHeight } from "../globals";
 import DottedLine from "../components/DottedLine.vue";
-import Banner from "../components/Banner.vue";
 import logo from "../assets/logo.png";
 import arrow from "../assets/right-arrow.png";
 import discord from "../assets/discord.png";
