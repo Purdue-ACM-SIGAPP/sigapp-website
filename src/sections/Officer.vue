@@ -87,6 +87,7 @@
             description="Server Manager"
             :image="jack"
             class="w-[140px] aspect-square rounded-2xl"
+            show-linkedin="https://www.linkedin.com/in/jackreynolds9128/"
           />
           <Card
             name="Isabel Fuh"
