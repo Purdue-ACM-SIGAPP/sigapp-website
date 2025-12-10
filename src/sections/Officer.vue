@@ -63,34 +63,39 @@
       </div>
 
       <!-- Right Column -->
-      <div class="flex flex-col gap-6 items-center">
-        <Card
-          name="Andrew Liu"
-          description="Back End Lead"
-          :image="andrew"
-          class="w-[140px] aspect-square rounded-2xl"
-          show-linkedin="https://www.linkedin.com/in/andrew-liu-715029250/"
-        />
-        <Card
-          name="Jonnen Chong"
-          description="Back End Lead"
-          :image="jonnen"
-          class="w-[140px] aspect-square rounded-2xl"
-          show-linkedin="https://www.linkedin.com/in/jonnen-chong/"
-        />
-        <Card
-          name="Jack Reynolds"
-          description="Server Manager"
-          :image="jack"
-          class="w-[140px] aspect-square rounded-2xl"
-        />
-        <Card
-          name="Isabel Fuh"
-          description="Marketing Lead"
-          :image="isabel"
-          class="w-[140px] aspect-square rounded-2xl"
-          show-linkedin="https://www.linkedin.com/in/isabel-fuh/"
-        />
+      <div class="flex gap-8">
+        <div class="flex flex-col gap-8">
+          <Card
+            name="Andrew Liu"
+            description="Back End Lead"
+            :image="andrew"
+            class="w-[140px] aspect-square rounded-2xl"
+            show-linkedin="https://www.linkedin.com/in/andrew-liu-715029250/"
+          />
+          <Card
+            name="Jonnen Chong"
+            description="Back End Lead"
+            :image="jonnen"
+            class="w-[140px] aspect-square rounded-2xl"
+            show-linkedin="https://www.linkedin.com/in/jonnen-chong/"
+          />
+        </div>
+        <div class="flex flex-col gap-8">
+          <div class="h-[100px] hidden md:inline" />
+          <Card
+            name="Jack Reynolds"
+            description="Server Manager"
+            :image="jack"
+            class="w-[140px] aspect-square rounded-2xl"
+          />
+          <Card
+            name="Isabel Fuh"
+            description="Marketing Lead"
+            :image="isabel"
+            class="w-[140px] aspect-square rounded-2xl"
+            show-linkedin="https://www.linkedin.com/in/isabel-fuh/"
+          />
+        </div>
       </div>
     </div>
   </section>
