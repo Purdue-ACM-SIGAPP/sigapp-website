@@ -1,7 +1,7 @@
 <template>
   <section class="page-section">
     <div class="page-container">
-      <RouterLink to="/" class="link-green text-sm inline-block mb-8"
+      <RouterLink to="/" class="link-green text-base inline-block mb-8"
         >← Back to home</RouterLink
       >
       <PageHero

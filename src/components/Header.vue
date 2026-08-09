@@ -5,22 +5,23 @@
     class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-light-green/70 shadow-sm text-dark z-50 transition-transform duration-700 ease-in-out"
   >
     <div
-      class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-3"
+      class="flex flex-col md:flex-row items-center justify-center gap-x-6 gap-y-2 px-6 py-3"
     >
+      <RouterLink
+        to="/"
+        class="flex items-center gap-2 font-semibold hover:text-dark-green transition"
+      >
+        <img
+          :src="siteContent.logo"
+          alt=""
+          class="h-7 w-auto"
+          draggable="false"
+        />
+        {{ siteContent.orgName }}
+      </RouterLink>
+
       <!-- Primary nav -->
-      <nav class="flex flex-wrap items-center gap-x-5 gap-y-2">
-        <RouterLink
-          to="/"
-          class="flex items-center gap-2 font-semibold hover:text-dark-green transition"
-        >
-          <img
-            :src="siteContent.logo"
-            alt=""
-            class="h-7 w-auto"
-            draggable="false"
-          />
-          {{ siteContent.orgName }}
-        </RouterLink>
+      <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
         <a
           v-for="link in navLinks"
           :key="link.hash"
