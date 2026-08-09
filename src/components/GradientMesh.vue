@@ -12,10 +12,14 @@ const props = withDefaults(
   defineProps<{
     colors?: [string, string, string, string];
     speed?: number;
+    // Higher = more turbulent/grainy (adds a finer high-frequency noise
+    // octave on top of the base domain warp); 1 = original smooth look.
+    noise?: number;
   }>(),
   {
     colors: () => ["#438d5e", "#d3efc3", "#89b08a", "#1c1c1c"],
     speed: 0.12,
+    noise: 1,
   },
 );
 
@@ -26,6 +30,7 @@ let program: WebGLProgram | null = null;
 let resizeObserver: ResizeObserver | null = null;
 let uTimeLoc: WebGLUniformLocation | null = null;
 let uResolutionLoc: WebGLUniformLocation | null = null;
+let uNoiseLoc: WebGLUniformLocation | null = null;
 
 const VERT_SRC = `
   attribute vec2 aPosition;
@@ -38,6 +43,7 @@ const FRAG_SRC = `
   precision highp float;
   uniform vec2 uResolution;
   uniform float uTime;
+  uniform float uNoise;
   uniform vec3 uColorA;
   uniform vec3 uColorB;
   uniform vec3 uColorC;
@@ -74,8 +80,17 @@ const FRAG_SRC = `
   }
 
   float warped(vec2 uv, float t) {
-    vec2 warp = vec2(snoise(uv * 1.3 + t * 0.6), snoise(uv * 1.3 - t * 0.5));
-    return snoise(uv * 1.1 + warp * 0.9 + t * 0.25);
+    vec2 warp = vec2(
+      snoise(uv * 1.3 * uNoise + t * 0.6),
+      snoise(uv * 1.3 * uNoise - t * 0.5)
+    );
+    float base = snoise(uv * 1.1 * uNoise + warp * 0.9 + t * 0.25);
+    // Extra high-frequency octave layered on top — this is what actually
+    // reads as "noise" (fine grain/turbulence) rather than smooth blobs.
+    float fine = snoise(uv * 3.6 * uNoise + warp * 1.7 - t * 0.4);
+    float grain = snoise(uv * 9.0 * uNoise - t * 0.9);
+    float detail = (uNoise - 1.0) / max(uNoise, 1.0);
+    return base + fine * 0.45 * detail + grain * 0.18 * detail;
   }
 
   void main() {
@@ -165,6 +180,8 @@ onMounted(() => {
 
   uTimeLoc = context.getUniformLocation(program, "uTime");
   uResolutionLoc = context.getUniformLocation(program, "uResolution");
+  uNoiseLoc = context.getUniformLocation(program, "uNoise");
+  context.uniform1f(uNoiseLoc, props.noise);
   const [a, b, c, d] = props.colors;
   context.uniform3fv(
     context.getUniformLocation(program, "uColorA"),

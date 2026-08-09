@@ -5,7 +5,7 @@
   >
     <!-- Section Title -->
     <div v-reveal class="text-3xl font-bold text-center text-gray-900 mb-4">
-      Our Past Projects
+      {{ sectionContent.title }}
     </div>
 
     <!-- Section Description -->
@@ -13,11 +13,7 @@
       v-reveal="100"
       class="max-w-3xl mx-auto text-center text-gray-700 text-lg mb-12"
     >
-      These projects reflect what SIGAPP is all about —
-      <span class="font-medium text-dark">
-        solving real problems with practical, user-centered solutions </span
-      >. Every semester brings new challenges and fresh ideas, and we're always
-      excited to see what our members will build next.
+      {{ sectionContent.description }}
     </div>
 
     <!-- Decorative Divider -->
@@ -57,5 +53,7 @@
 import SquiggleLine from "../components/SquiggleLine.vue";
 import Card from "../components/Card.vue";
 import InstagramShowcase from "../components/InstagramShowcase.vue";
-import { projects } from "../data/projectsData";
+import { projects, projectsSectionContent } from "../content/projects";
+
+const sectionContent = projectsSectionContent;
 </script>

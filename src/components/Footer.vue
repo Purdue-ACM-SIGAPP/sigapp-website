@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-dull-green text-white py-6">
     <div class="container mx-auto px-4 flex flex-col items-center text-center">
-      <p>Let’s build something awesome — together.</p>
+      <p>{{ siteContent.footerMessage }}</p>
 
       <div class="flex gap-4 pt-4">
         <img
@@ -21,40 +21,32 @@
 
 <script setup lang="ts">
 import { reactive } from "vue";
-import discord from "../assets/discord.png";
-import instagram from "../assets/instagram.png";
-import github from "../assets/github.png";
-import linkedin from "../assets/linkedin.png";
+import { siteContent, icons } from "../content/site";
 
 const socialIcons = reactive([
   {
     name: "Discord",
-    src: discord,
+    src: icons.discord,
     isHovered: false,
-    action: () => window.open("https://discord.gg/jKTWKYarGE", "_blank"),
+    action: () => window.open(siteContent.discordUrl, "_blank"),
   },
   {
     name: "Instagram",
-    src: instagram,
+    src: icons.instagram,
     isHovered: false,
-    action: () =>
-      window.open("https://www.instagram.com/purduesigapp", "_blank"),
+    action: () => window.open(siteContent.instagramUrl, "_blank"),
   },
   {
     name: "GitHub",
-    src: github,
+    src: icons.github,
     isHovered: false,
-    action: () => window.open("https://github.com/Purdue-ACM-SIGAPP", "_blank"),
+    action: () => window.open(siteContent.githubUrl, "_blank"),
   },
   {
     name: "LinkedIn",
-    src: linkedin,
+    src: icons.linkedin,
     isHovered: false,
-    action: () =>
-      window.open(
-        "https://www.linkedin.com/company/purdue-acm-sigapp/",
-        "_blank",
-      ),
+    action: () => window.open(siteContent.linkedinUrl, "_blank"),
   },
 ]);
 </script>

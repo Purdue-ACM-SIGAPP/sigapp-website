@@ -2,7 +2,7 @@
   <header
     ref="headerRef"
     :class="{ '-translate-y-full': isHidden }"
-    class="fixed top-0 w-full bg-grey text-dark z-50 transition-transform duration-300"
+    class="fixed top-0 w-full bg-grey text-dark z-50 transition-transform duration-700 ease-in-out"
   >
     <div
       class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-4"
@@ -13,22 +13,14 @@
           to="/"
           class="font-semibold hover:text-dark-green underline decoration-transparent hover:decoration-dark-green underline-offset-4 transition"
         >
-          Purdue ACM SIGAPP
+          {{ siteContent.orgName }}
         </RouterLink>
         <a
+          v-for="link in navLinks"
+          :key="link.hash"
           class="hover:text-dark-green underline decoration-transparent hover:decoration-dark-green underline-offset-4 transition cursor-pointer"
-          @click.prevent="scrollTo('#about')"
-          >About Us</a
-        >
-        <a
-          class="hover:text-dark-green underline decoration-transparent hover:decoration-dark-green underline-offset-4 transition cursor-pointer"
-          @click.prevent="scrollTo('#officer')"
-          >Current Officers</a
-        >
-        <a
-          class="hover:text-dark-green underline decoration-transparent hover:decoration-dark-green underline-offset-4 transition cursor-pointer"
-          @click.prevent="scrollTo('#project')"
-          >Our Projects</a
+          @click.prevent="scrollTo(link.hash)"
+          >{{ link.label }}</a
         >
         <button type="button" class="btn-primary" @click="handleJoin">
           Join Us
@@ -42,6 +34,7 @@
 import { ref, onMounted, onUnmounted, provide } from "vue";
 import { useRouter } from "vue-router";
 import { headerHeight } from "../globals";
+import { siteContent, navLinks } from "../content/site";
 
 const router = useRouter();
 const isHidden = ref(false);
@@ -66,7 +59,7 @@ const scrollTo = (hash: string) => {
 };
 
 const handleJoin = () => {
-  window.open("https://discord.gg/jKTWKYarGE", "_blank");
+  window.open(siteContent.discordUrl, "_blank");
 };
 
 provide("headerHeight", headerHeight);

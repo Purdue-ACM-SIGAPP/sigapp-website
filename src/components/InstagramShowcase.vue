@@ -1,10 +1,10 @@
 <template>
-  <section class="w-full max-w-screen-xl mx-auto">
+  <section ref="sectionRef" class="w-full max-w-screen-xl mx-auto">
     <div v-reveal class="text-center mb-4">
-      <h2 class="section-title mb-3">From the Gram</h2>
+      <h2 class="section-title mb-3">{{ sectionContent.title }}</h2>
       <SquiggleLine class="mx-auto" />
       <p class="section-subtitle">
-        A few recent moments from
+        {{ sectionContent.introText }}
         <a
           :href="instagramProfileUrl"
           target="_blank"
@@ -44,20 +44,28 @@
         rel="noopener noreferrer"
         class="relative z-10 h-full flex flex-col items-center justify-center gap-3 text-white text-center px-6"
       >
-        <span class="text-2xl font-bold drop-shadow">Follow @purduesigapp</span>
-        <span class="text-sm opacity-90"
-          >See our latest posts on Instagram →</span
-        >
+        <span class="text-2xl font-bold drop-shadow">{{
+          sectionContent.followHeadline
+        }}</span>
+        <span class="text-sm opacity-90">{{
+          sectionContent.followSubtext
+        }}</span>
       </a>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, watch } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref } from "vue";
 import SquiggleLine from "./SquiggleLine.vue";
 import GradientMesh from "./GradientMesh.vue";
-import { instagramPostUrls, instagramProfileUrl } from "../data/instagramData";
+import {
+  instagramPostUrls,
+  instagramProfileUrl,
+  instagramSectionContent,
+} from "../content/instagram";
+
+const sectionContent = instagramSectionContent;
 
 // Newest post first, matching Instagram's own grid convention.
 const reversedPostUrls = computed(() => [...instagramPostUrls].reverse());
@@ -99,6 +107,25 @@ async function processEmbeds() {
   window.instgrm?.Embeds.process();
 }
 
-onMounted(processEmbeds);
-watch(instagramPostUrls, processEmbeds);
+// This is the last section on the page — load Instagram's (heavy) embed
+// script and iframes only once it's actually about to scroll into view,
+// not unconditionally on every page load.
+const sectionRef = ref<HTMLElement | null>(null);
+let observer: IntersectionObserver | null = null;
+
+onMounted(() => {
+  if (!instagramPostUrls.length || !sectionRef.value) return;
+  observer = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        processEmbeds();
+        observer?.disconnect();
+      }
+    },
+    { rootMargin: "600px" },
+  );
+  observer.observe(sectionRef.value);
+});
+
+onUnmounted(() => observer?.disconnect());
 </script>

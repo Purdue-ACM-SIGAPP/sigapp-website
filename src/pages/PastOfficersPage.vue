@@ -5,47 +5,80 @@
         >← Back to home</RouterLink
       >
       <PageHero
-        title="Past Officers"
-        subtitle="A look back at the people who built SIGAPP into what it is today."
+        :title="pastOfficersPageContent.title"
+        :subtitle="pastOfficersPageContent.subtitle"
       />
 
       <div class="space-y-16 mt-16">
         <div
           v-for="(year, yi) in pastOfficerYears"
           :key="year.label"
-          v-reveal="yi * 120"
+          v-reveal="Math.min(yi * 120, 300)"
           class="year-divider"
         >
           <h2 class="year-label mb-8">{{ year.label }}</h2>
 
           <div
             v-if="year.photo"
-            class="mb-10 rounded-2xl overflow-hidden shadow-lg max-w-2xl"
+            class="flex flex-col md:flex-row md:items-start gap-8"
           >
-            <img
-              :src="year.photo"
-              :alt="'SIGAPP ' + year.label + ' team'"
-              class="w-full object-cover"
-            />
+            <div class="md:w-2/5 shrink-0">
+              <TeamPhoto
+                :photo="year.photo"
+                :alt="'SIGAPP ' + year.label + ' team'"
+                :regions="year.regions"
+                @hover="hoveredName = $event"
+                @select="hoveredName = $event"
+              />
+            </div>
+
+            <div
+              class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 content-start"
+            >
+              <OfficerChip
+                v-for="officer in year.officers"
+                :key="officer.name + officer.role"
+                :officer="officer"
+                :highlighted="hoveredName === officer.name"
+                @select="selectedOfficer = $event"
+              />
+            </div>
           </div>
 
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            <div
+          <div
+            v-else
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+          >
+            <OfficerChip
               v-for="officer in year.officers"
               :key="officer.name + officer.role"
-              class="officer-chip"
-            >
-              <p class="font-semibold text-dark">{{ officer.name }}</p>
-              <p class="text-sm text-gray-500 mt-1">{{ officer.role }}</p>
-            </div>
+              :officer="officer"
+              @select="selectedOfficer = $event"
+            />
           </div>
         </div>
       </div>
     </div>
+
+    <OfficerDetailModal
+      :officer="selectedOfficer"
+      @close="selectedOfficer = null"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import PageHero from "../components/PageHero.vue";
-import { pastOfficerYears } from "../data/officersData";
+import TeamPhoto from "../components/TeamPhoto.vue";
+import OfficerChip from "../components/OfficerChip.vue";
+import OfficerDetailModal from "../components/OfficerDetailModal.vue";
+import {
+  pastOfficerYears,
+  pastOfficersPageContent,
+  type Officer,
+} from "../content/officers";
+
+const selectedOfficer = ref<Officer | null>(null);
+const hoveredName = ref<string | null>(null);
 </script>

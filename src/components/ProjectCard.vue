@@ -15,21 +15,12 @@
       <p class="text-gray-600 text-sm leading-relaxed flex-1">
         {{ project.description }}
       </p>
-      <a
-        v-if="project.link"
-        :href="project.link"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-4 link-green text-sm inline-block"
-      >
-        View on GitHub →
-      </a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Project } from "../data/projectsData";
+import type { Project } from "../content/projects";
 
 defineProps<{ project: Project }>();
 </script>

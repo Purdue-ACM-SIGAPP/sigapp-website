@@ -5,8 +5,8 @@
         >← Back to home</RouterLink
       >
       <PageHero
-        title="Past Projects"
-        subtitle="Every project reflects what SIGAPP is all about — solving real problems with practical, user-centered solutions."
+        :title="pastProjectsPageContent.title"
+        :subtitle="pastProjectsPageContent.subtitle"
       />
 
       <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -24,5 +24,5 @@
 <script setup lang="ts">
 import PageHero from "../components/PageHero.vue";
 import ProjectCard from "../components/ProjectCard.vue";
-import { projects } from "../data/projectsData";
+import { projects, pastProjectsPageContent } from "../content/projects";
 </script>

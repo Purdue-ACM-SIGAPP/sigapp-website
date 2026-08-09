@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import SquiggleLine from "../components/SquiggleLine.vue";
 import Carousel from "../components/Carousel.vue";
-import { aboutData } from "../data/homeData";
+import { aboutContent } from "../content/home";
 
-const about = aboutData;
+const about = aboutContent;
 </script>

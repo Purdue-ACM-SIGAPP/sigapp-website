@@ -32,8 +32,9 @@
 </template>
 
 <script setup lang="ts">
-const message =
-  "🚀 Build the projects you wish existed. Come join us for spring 2026! We look forward to seeing you! 🤩";
+import { siteContent } from "../content/site";
+
+const message = siteContent.bannerMessage;
 
 const reduceMotion =
   typeof window !== "undefined" &&

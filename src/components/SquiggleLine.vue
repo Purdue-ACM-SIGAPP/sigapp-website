@@ -37,12 +37,6 @@
       stroke-linejoin="round"
       pathLength="100"
     />
-
-    <circle v-if="!reduceMotion" r="3.5" fill="#438d5e" class="squiggle-dot">
-      <animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto">
-        <mpath :href="`#${pathId}`" />
-      </animateMotion>
-    </circle>
   </svg>
 </template>
 
@@ -105,12 +99,5 @@ onUnmounted(() => observer?.disconnect());
 }
 .is-visible .squiggle-path {
   stroke-dashoffset: 0;
-}
-.squiggle-dot {
-  opacity: 0;
-  transition: opacity 0.4s ease 0.7s;
-}
-.is-visible .squiggle-dot {
-  opacity: 1;
 }
 </style>

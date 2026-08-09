@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 import SquiggleLine from "../components/SquiggleLine.vue";
-import { whatWeDoData } from "../data/homeData";
+import { whatWeDoContent } from "../content/home";
 
-const data = whatWeDoData;
+const data = whatWeDoContent;
 </script>

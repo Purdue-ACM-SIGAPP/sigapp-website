@@ -19,18 +19,20 @@
       <!-- Text content -->
       <div v-reveal class="space-y-6 text-center md:text-left">
         <div>
-          <h1 class="text-4xl sm:text-5xl font-bold leading-tight">Purdue</h1>
+          <h1 class="text-4xl sm:text-5xl font-bold leading-tight">
+            {{ heroContent.headlineLine1 }}
+          </h1>
           <h1
             class="text-4xl sm:text-5xl font-bold leading-tight bg-gradient-to-r from-dark-green to-dull-green bg-clip-text text-transparent"
           >
-            ACM SIGAPP
+            {{ heroContent.headlineLine2 }}
           </h1>
         </div>
 
         <SquiggleLine variant="zigzag" />
 
         <p class="text-base sm:text-lg text-gray-700">
-          Purdue's premier app development club!
+          {{ heroContent.tagline }}
         </p>
 
         <button
@@ -40,12 +42,12 @@
           @mouseenter="isArrowHovered = true"
           @mouseleave="isArrowHovered = false"
         >
-          <span class="pl-6 pr-3 py-3">Join our discord server</span>
+          <span class="pl-6 pr-3 py-3">{{ heroContent.ctaText }}</span>
           <span
             class="w-10 h-10 bg-white text-dark rounded-full flex items-center justify-center"
           >
             <img
-              :src="isArrowHovered ? arrow_green : arrow"
+              :src="isArrowHovered ? icons.arrowGreen : icons.arrow"
               alt="arrow"
               class="w-5 h-5 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
               draggable="false"
@@ -54,7 +56,7 @@
           <span class="ml-1"></span>
         </button>
         <p class="text-sm text-gray-500">
-          *No experience required — join our Discord to become a member!
+          {{ heroContent.disclaimer }}
         </p>
 
         <div
@@ -62,7 +64,7 @@
           class="flex gap-4 justify-center md:justify-start pt-2"
         >
           <img
-            :src="isDiscordHovered ? discord_green : discord"
+            :src="isDiscordHovered ? icons.discordGreen : icons.discord"
             alt="Discord"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 hover:-rotate-12 hover:scale-110 active:scale-90"
             draggable="false"
@@ -71,7 +73,7 @@
             @mouseleave="isDiscordHovered = false"
           />
           <img
-            :src="isInstagramHovered ? instagram_green : instagram"
+            :src="isInstagramHovered ? icons.instagramGreen : icons.instagram"
             alt="Instagram"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 hover:rotate-12 hover:scale-110 active:scale-90"
             draggable="false"
@@ -80,7 +82,7 @@
             @mouseleave="isInstagramHovered = false"
           />
           <img
-            :src="isGithubHovered ? github_green : github"
+            :src="isGithubHovered ? icons.githubGreen : icons.github"
             alt="GitHub"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 hover:-rotate-12 hover:scale-110 active:scale-90"
             draggable="false"
@@ -89,7 +91,7 @@
             @mouseleave="isGithubHovered = false"
           />
           <img
-            :src="isLinkedinHovered ? linkedin_green : linkedin"
+            :src="isLinkedinHovered ? icons.linkedinGreen : icons.linkedin"
             alt="LinkedIn"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 hover:rotate-12 hover:scale-110 active:scale-90"
             draggable="false"
@@ -103,7 +105,7 @@
       <!-- Logo -->
       <div v-reveal="200" class="flex justify-center">
         <img
-          :src="logo"
+          :src="siteContent.logo"
           alt="SIGAPP Logo"
           class="max-w-xs w-full px-6 sm:px-0 animate-float"
           draggable="false"
@@ -119,17 +121,8 @@ import { headerHeight } from "../globals";
 import SquiggleLine from "../components/SquiggleLine.vue";
 import Banner from "../components/Banner.vue";
 import GradientMesh from "../components/GradientMesh.vue";
-import logo from "../assets/logo.png";
-import arrow from "../assets/right-arrow.png";
-import discord from "../assets/discord.png";
-import instagram from "../assets/instagram.png";
-import discord_green from "../assets/discord_green.png";
-import arrow_green from "../assets/right-arrow_green.png";
-import instagram_green from "../assets/instagram_green.png";
-import github from "../assets/github.png";
-import github_green from "../assets/github_green.png";
-import linkedin from "../assets/linkedin.png";
-import linkedin_green from "../assets/linkedin_green.png";
+import { siteContent, icons } from "../content/site";
+import { heroContent } from "../content/home";
 
 const paddingTop = ref(headerHeight.value);
 
@@ -144,18 +137,18 @@ watch(headerHeight, (newHeight) => {
 });
 
 const openDiscord = () => {
-  window.open("https://discord.gg/jKTWKYarGE", "_blank");
+  window.open(siteContent.discordUrl, "_blank");
 };
 
 const openInstagram = () => {
-  window.open("https://www.instagram.com/purduesigapp", "_blank");
+  window.open(siteContent.instagramUrl, "_blank");
 };
 
 const openGithub = () => {
-  window.open("https://github.com/Purdue-ACM-SIGAPP", "_blank");
+  window.open(siteContent.githubUrl, "_blank");
 };
 
 const openLinkedin = () => {
-  window.open("https://www.linkedin.com/company/purdue-acm-sigapp/", "_blank");
+  window.open(siteContent.linkedinUrl, "_blank");
 };
 </script>
