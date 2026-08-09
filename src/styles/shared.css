@@ -1,0 +1,62 @@
+@layer base {
+  a:focus-visible,
+  button:focus-visible {
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: #438d5e;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* ── Layout ── */
+  .page-section {
+    @apply min-h-screen bg-white text-dark py-24 px-6;
+  }
+
+  .page-container {
+    @apply max-w-5xl mx-auto;
+  }
+
+  /* ── Typography ── */
+  .section-title {
+    @apply text-4xl md:text-5xl font-extrabold text-dark;
+  }
+
+  .section-subtitle {
+    @apply text-gray-600 text-lg mt-6 max-w-xl mx-auto;
+  }
+
+  .year-label {
+    @apply text-2xl font-bold text-dark-green;
+  }
+
+  /* ── Badges ── */
+  .year-badge {
+    @apply text-xs font-medium text-white bg-dark-green rounded-full px-3 py-1 whitespace-nowrap;
+  }
+
+  /* ── Cards ── */
+  .card-base {
+    @apply rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300;
+  }
+
+  .officer-chip {
+    @apply bg-gray-50 rounded-2xl p-4 text-center;
+  }
+
+  /* ── Buttons & Links ── */
+  .btn-primary {
+    @apply bg-dark text-white font-bold rounded-3xl px-5 py-2 hover:bg-dark-green transition;
+  }
+
+  .link-green {
+    @apply text-dark-green font-semibold hover:underline;
+  }
+
+  /* ── Dividers ── */
+  .year-divider {
+    @apply border-t border-gray-200 pt-12;
+  }
+}

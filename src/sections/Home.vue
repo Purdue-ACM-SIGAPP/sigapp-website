@@ -1,19 +1,28 @@
 <template>
   <section
     id="home"
-    class="min-h-[80vh] py-16 flex flex-col"
+    class="relative overflow-hidden min-h-[80vh] py-16 flex flex-col"
     :style="{ paddingTop: paddingTop + 'px' }"
   >
+    <div
+      class="pointer-events-none absolute right-[-8%] top-[8%] w-[36rem] h-[36rem] max-w-[80vw] max-h-[80vw] rounded-full blur-3xl opacity-30 overflow-hidden"
+      aria-hidden="true"
+    >
+      <GradientMesh :speed="0.05" />
+    </div>
+
     <Banner />
 
     <div
-      class="w-full max-w-screen-lg mx-auto px-6 pt-20 grid md:grid-cols-2 items-center gap-12"
+      class="relative z-10 w-full max-w-screen-lg mx-auto px-6 pt-20 grid md:grid-cols-2 items-center gap-12"
     >
       <!-- Text content -->
       <div class="space-y-6 text-center md:text-left">
         <div>
           <h1 class="text-4xl sm:text-5xl font-bold leading-tight">Purdue</h1>
-          <h1 class="text-4xl sm:text-5xl font-bold leading-tight">
+          <h1
+            class="text-4xl sm:text-5xl font-bold leading-tight bg-gradient-to-r from-dark-green to-dull-green bg-clip-text text-transparent"
+          >
             ACM SIGAPP
           </h1>
         </div>
@@ -76,6 +85,15 @@
             @mouseenter="isGithubHovered = true"
             @mouseleave="isGithubHovered = false"
           />
+          <img
+            :src="isLinkedinHovered ? linkedin_green : linkedin"
+            alt="LinkedIn"
+            class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            draggable="false"
+            @click="openLinkedin"
+            @mouseenter="isLinkedinHovered = true"
+            @mouseleave="isLinkedinHovered = false"
+          />
         </div>
       </div>
 
@@ -97,6 +115,7 @@ import { ref, watch } from "vue";
 import { headerHeight } from "../globals";
 import DottedLine from "../components/DottedLine.vue";
 import Banner from "../components/Banner.vue";
+import GradientMesh from "../components/GradientMesh.vue";
 import logo from "../assets/logo.png";
 import arrow from "../assets/right-arrow.png";
 import discord from "../assets/discord.png";
@@ -106,12 +125,15 @@ import arrow_green from "../assets/right-arrow_green.png";
 import instagram_green from "../assets/instagram_green.png";
 import github from "../assets/github.png";
 import github_green from "../assets/github_green.png";
+import linkedin from "../assets/linkedin.png";
+import linkedin_green from "../assets/linkedin_green.png";
 
 const paddingTop = ref(headerHeight.value);
 
 const isDiscordHovered = ref(false);
 const isInstagramHovered = ref(false);
 const isGithubHovered = ref(false);
+const isLinkedinHovered = ref(false);
 const isArrowHovered = ref(false);
 
 watch(headerHeight, (newHeight) => {
@@ -128,5 +150,9 @@ const openInstagram = () => {
 
 const openGithub = () => {
   window.open("https://github.com/Purdue-ACM-SIGAPP", "_blank");
+};
+
+const openLinkedin = () => {
+  window.open("https://www.linkedin.com/company/purdue-acm-sigapp/", "_blank");
 };
 </script>

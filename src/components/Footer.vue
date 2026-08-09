@@ -24,6 +24,7 @@ import { reactive } from "vue";
 import discord from "../assets/discord.png";
 import instagram from "../assets/instagram.png";
 import github from "../assets/github.png";
+import linkedin from "../assets/linkedin.png";
 
 const socialIcons = reactive([
   {
@@ -44,6 +45,16 @@ const socialIcons = reactive([
     src: github,
     isHovered: false,
     action: () => window.open("https://github.com/Purdue-ACM-SIGAPP", "_blank"),
+  },
+  {
+    name: "LinkedIn",
+    src: linkedin,
+    isHovered: false,
+    action: () =>
+      window.open(
+        "https://www.linkedin.com/company/purdue-acm-sigapp/",
+        "_blank",
+      ),
   },
 ]);
 </script>
