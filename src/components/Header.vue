@@ -2,17 +2,23 @@
   <header
     ref="headerRef"
     :class="{ '-translate-y-full': isHidden }"
-    class="fixed top-0 w-full bg-grey text-dark z-50 transition-transform duration-700 ease-in-out"
+    class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-light-green/70 shadow-sm text-dark z-50 transition-transform duration-700 ease-in-out"
   >
     <div
-      class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-4"
+      class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-3"
     >
       <!-- Primary nav -->
       <nav class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <RouterLink
           to="/"
-          class="font-semibold hover:text-dark-green underline decoration-transparent hover:decoration-dark-green underline-offset-4 transition"
+          class="flex items-center gap-2 font-semibold hover:text-dark-green transition"
         >
+          <img
+            :src="siteContent.logo"
+            alt=""
+            class="h-7 w-auto"
+            draggable="false"
+          />
           {{ siteContent.orgName }}
         </RouterLink>
         <a

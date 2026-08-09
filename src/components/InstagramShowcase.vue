@@ -1,56 +1,65 @@
 <template>
-  <section ref="sectionRef" class="w-full max-w-screen-xl mx-auto">
-    <div v-reveal class="text-center mb-4">
-      <h2 class="section-title mb-3">{{ sectionContent.title }}</h2>
-      <SquiggleLine class="mx-auto" />
-      <p class="section-subtitle">
-        {{ sectionContent.introText }}
+  <section
+    id="past-moments"
+    ref="sectionRef"
+    class="min-h-[60vh] px-6 sm:px-8 py-20 bg-white"
+  >
+    <div class="max-w-screen-xl mx-auto">
+      <div v-reveal class="text-center mb-4">
+        <h2 class="section-title mb-3">{{ sectionContent.title }}</h2>
+        <SquiggleLine class="mx-auto" />
+        <p class="section-subtitle">
+          {{ sectionContent.introText }}
+          <a
+            :href="instagramProfileUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-green"
+            >@purduesigapp</a
+          >.
+        </p>
+      </div>
+
+      <div
+        v-if="reversedPostUrls.length"
+        class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start"
+      >
+        <div
+          v-for="(url, i) in reversedPostUrls"
+          :key="url"
+          v-reveal="i * 80"
+          class="w-full max-w-[340px] mx-auto"
+        >
+          <blockquote
+            class="instagram-media w-full rounded-2xl overflow-hidden shadow-md"
+            :data-instgrm-permalink="url"
+            data-instgrm-version="14"
+            style="background: #fff; margin: 0"
+          />
+        </div>
+      </div>
+
+      <div v-else class="mt-12 relative rounded-3xl overflow-hidden h-64">
+        <div class="absolute inset-0">
+          <ShaderGradientMesh
+            :colors="['#831843', '#166534', '#9d174d']"
+            :speed="0.15"
+          />
+        </div>
         <a
           :href="instagramProfileUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="link-green"
-          >@purduesigapp</a
-        >.
-      </p>
-    </div>
-
-    <div
-      v-if="reversedPostUrls.length"
-      class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start"
-    >
-      <div
-        v-for="(url, i) in reversedPostUrls"
-        :key="url"
-        v-reveal="i * 80"
-        class="w-full max-w-[340px] mx-auto"
-      >
-        <blockquote
-          class="instagram-media w-full rounded-2xl overflow-hidden shadow-md"
-          :data-instgrm-permalink="url"
-          data-instgrm-version="14"
-          style="background: #fff; margin: 0"
-        />
+          class="relative z-10 h-full flex flex-col items-center justify-center gap-3 text-white text-center px-6"
+        >
+          <span class="text-2xl font-bold drop-shadow">{{
+            sectionContent.followHeadline
+          }}</span>
+          <span class="text-sm opacity-90">{{
+            sectionContent.followSubtext
+          }}</span>
+        </a>
       </div>
-    </div>
-
-    <div v-else class="mt-12 relative rounded-3xl overflow-hidden h-64">
-      <div class="absolute inset-0">
-        <GradientMesh :speed="0.08" />
-      </div>
-      <a
-        :href="instagramProfileUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="relative z-10 h-full flex flex-col items-center justify-center gap-3 text-white text-center px-6"
-      >
-        <span class="text-2xl font-bold drop-shadow">{{
-          sectionContent.followHeadline
-        }}</span>
-        <span class="text-sm opacity-90">{{
-          sectionContent.followSubtext
-        }}</span>
-      </a>
     </div>
   </section>
 </template>
@@ -58,7 +67,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref } from "vue";
 import SquiggleLine from "./SquiggleLine.vue";
-import GradientMesh from "./GradientMesh.vue";
+import ShaderGradientMesh from "./ShaderGradientMesh.vue";
 import {
   instagramPostUrls,
   instagramProfileUrl,

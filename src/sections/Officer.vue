@@ -3,19 +3,6 @@
     id="officer"
     class="relative overflow-x-hidden min-h-[80vh] bg-white px-6 py-16 flex flex-col items-center"
   >
-    <div
-      class="blob-mask pointer-events-none absolute -left-40 -top-24 w-[40rem] h-[52rem] max-w-[85vw] opacity-70"
-      aria-hidden="true"
-    >
-      <GradientMesh :colors="brightGreen" :speed="0.04" :noise="2.6" />
-    </div>
-    <div
-      class="blob-mask pointer-events-none absolute -right-40 -top-24 w-[40rem] h-[52rem] max-w-[85vw] opacity-70"
-      aria-hidden="true"
-    >
-      <GradientMesh :colors="brightGreen" :speed="0.045" :noise="2.6" />
-    </div>
-
     <!-- Header -->
     <div class="relative z-10 text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold leading-tight">
@@ -132,33 +119,8 @@
 <script setup lang="ts">
 import SquiggleLine from "../components/SquiggleLine.vue";
 import Card from "../components/Card.vue";
-import GradientMesh from "../components/GradientMesh.vue";
 import { currentOfficers, officersSectionTitle } from "../content/officers";
 
 const officers = currentOfficers;
 const sectionTitle = officersSectionTitle;
-const brightGreen: [string, string, string, string] = [
-  "#22d46e",
-  "#e3fce9",
-  "#34d399",
-  "#1c1c1c",
-];
 </script>
-
-<style scoped>
-/* Soft radial fade instead of a hard circular/rectangular clip, so the glow
-   bleeds gradually into neighboring sections rather than switching on at a
-   sharp section boundary. */
-.blob-mask {
-  mask-image: radial-gradient(
-    ellipse 60% 42% at 50% 50%,
-    black 0%,
-    transparent 72%
-  );
-  -webkit-mask-image: radial-gradient(
-    ellipse 60% 42% at 50% 50%,
-    black 0%,
-    transparent 72%
-  );
-}
-</style>

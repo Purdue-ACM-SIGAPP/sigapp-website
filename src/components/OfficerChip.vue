@@ -11,6 +11,8 @@
       :alt="officer.name"
       class="w-10 h-10 rounded-full object-cover shrink-0"
       draggable="false"
+      loading="lazy"
+      decoding="async"
     />
     <div
       v-else

@@ -5,6 +5,8 @@
         :src="project.image"
         :alt="project.name"
         class="w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
       />
     </div>
     <div class="p-6 flex flex-col flex-1">

@@ -4,15 +4,12 @@
     class="min-h-[80vh] px-6 sm:px-8 py-20 relative overflow-hidden bg-white"
   >
     <!-- Section Title -->
-    <div v-reveal class="text-3xl font-bold text-center text-gray-900 mb-4">
+    <div v-reveal class="section-title text-center mb-4">
       {{ sectionContent.title }}
     </div>
 
     <!-- Section Description -->
-    <div
-      v-reveal="100"
-      class="max-w-3xl mx-auto text-center text-gray-700 text-lg mb-12"
-    >
+    <div v-reveal="100" class="section-subtitle max-w-3xl mb-12">
       {{ sectionContent.description }}
     </div>
 
@@ -44,15 +41,12 @@
         View Past Projects
       </RouterLink>
     </div>
-
-    <InstagramShowcase class="mt-24" />
   </section>
 </template>
 
 <script setup lang="ts">
 import SquiggleLine from "../components/SquiggleLine.vue";
 import Card from "../components/Card.vue";
-import InstagramShowcase from "../components/InstagramShowcase.vue";
 import { projects, projectsSectionContent } from "../content/projects";
 
 const sectionContent = projectsSectionContent;

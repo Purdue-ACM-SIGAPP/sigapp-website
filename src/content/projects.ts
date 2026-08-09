@@ -56,7 +56,7 @@ export const projects: Project[] = [
   {
     name: "Bucket List",
     year: "2024–2025",
-    image: "/assets/app/bucketlist.png",
+    image: "/assets/app/bucketlist.jpg",
     description:
       "Discover and share personal goals with others. Create your own bucket list and join friends on their adventures!",
     link: "https://github.com/Purdue-ACM-SIGAPP",

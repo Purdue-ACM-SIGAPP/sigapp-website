@@ -13,7 +13,12 @@
         <div
           class="absolute inset-0 backface-hidden rounded-3xl overflow-hidden shadow-xl"
         >
-          <img :src="image" class="w-full h-full object-cover" />
+          <img
+            :src="image"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <!-- Back Face -->

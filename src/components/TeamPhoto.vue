@@ -16,6 +16,8 @@
         class="w-full h-auto block transition-transform duration-500 ease-out"
         :style="imgStyle"
         draggable="false"
+        loading="lazy"
+        decoding="async"
       />
 
       <svg

@@ -5,10 +5,10 @@
     :style="{ paddingTop: paddingTop + 'px' }"
   >
     <div
-      class="pointer-events-none absolute right-[-8%] top-[8%] w-[36rem] h-[36rem] max-w-[80vw] max-h-[80vw] rounded-full blur-3xl opacity-30 overflow-hidden"
+      class="blob-mask pointer-events-none absolute right-[-8%] top-[8%] w-[36rem] h-[36rem] max-w-[80vw] max-h-[80vw]"
       aria-hidden="true"
     >
-      <GradientMesh :speed="0.05" />
+      <ShaderGradientMesh />
     </div>
 
     <Banner />
@@ -109,6 +109,7 @@
           alt="SIGAPP Logo"
           class="max-w-xs w-full px-6 sm:px-0 animate-float"
           draggable="false"
+          fetchpriority="high"
         />
       </div>
     </div>
@@ -120,7 +121,7 @@ import { ref, watch } from "vue";
 import { headerHeight } from "../globals";
 import SquiggleLine from "../components/SquiggleLine.vue";
 import Banner from "../components/Banner.vue";
-import GradientMesh from "../components/GradientMesh.vue";
+import ShaderGradientMesh from "../components/ShaderGradientMesh.vue";
 import { siteContent, icons } from "../content/site";
 import { heroContent } from "../content/home";
 
@@ -152,3 +153,26 @@ const openLinkedin = () => {
   window.open(siteContent.linkedinUrl, "_blank");
 };
 </script>
+
+<style scoped>
+/* The shadergradient canvas always fills its container with an opaque
+   scene, so we fade it to transparent at the edges here instead of relying
+   on shader-side alpha, keeping the "floating blob" look on a white page.
+   The fade holds full opacity out to 55% so the gradient reads as vivid,
+   saturated color (like shadergradient.co's own reference shots) rather
+   than a pale haze — only the outer rim softens into the page. */
+.blob-mask {
+  mask-image: radial-gradient(
+    ellipse 60% 60% at 50% 50%,
+    black 0%,
+    black 55%,
+    transparent 85%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 60% 60% at 50% 50%,
+    black 0%,
+    black 55%,
+    transparent 85%
+  );
+}
+</style>

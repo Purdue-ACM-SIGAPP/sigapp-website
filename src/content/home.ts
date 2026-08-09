@@ -38,7 +38,7 @@ export const whatWeDoContent = {
   cards: [
     {
       title: "Real-World Apps",
-      bg: "bg-gray-100",
+      bg: "bg-light-green/35 border border-light-green",
       text: "text-dark",
       highlight: "text-dark-green",
       body: "Our projects go beyond class assignments — they solve real problems that our members care about. You'll be building something that you (and others) will actually want to use.",
@@ -52,7 +52,7 @@ export const whatWeDoContent = {
     },
     {
       title: "Real-World Education",
-      bg: "bg-gray-100",
+      bg: "bg-light-green/35 border border-light-green",
       text: "text-dark",
       highlight: "text-dark-green",
       body: "No experience? No problem! We welcome members from all backgrounds and skill levels. Our experienced team will help you ramp up quickly, whether you're learning your first programming language or shipping your first full-stack app.",
