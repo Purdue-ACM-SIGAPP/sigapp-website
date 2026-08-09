@@ -11,8 +11,9 @@
 
       <div class="space-y-16 mt-16">
         <div
-          v-for="year in pastOfficerYears"
+          v-for="(year, yi) in pastOfficerYears"
           :key="year.label"
+          v-reveal="yi * 120"
           class="year-divider"
         >
           <h2 class="year-label mb-8">{{ year.label }}</h2>

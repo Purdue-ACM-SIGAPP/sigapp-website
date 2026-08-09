@@ -4,12 +4,15 @@
     class="min-h-[80vh] px-6 sm:px-8 py-20 relative overflow-hidden bg-white"
   >
     <!-- Section Title -->
-    <div class="text-3xl font-bold text-center text-gray-900 mb-4">
+    <div v-reveal class="text-3xl font-bold text-center text-gray-900 mb-4">
       Our Past Projects
     </div>
 
     <!-- Section Description -->
-    <div class="max-w-3xl mx-auto text-center text-gray-700 text-lg mb-12">
+    <div
+      v-reveal="100"
+      class="max-w-3xl mx-auto text-center text-gray-700 text-lg mb-12"
+    >
       These projects reflect what SIGAPP is all about —
       <span class="font-medium text-dark">
         solving real problems with practical, user-centered solutions </span
@@ -19,7 +22,7 @@
 
     <!-- Decorative Divider -->
     <div class="flex justify-center mb-16">
-      <DottedLine />
+      <SquiggleLine />
     </div>
 
     <!-- Zigzag Project Cards -->
@@ -29,6 +32,7 @@
       <Card
         v-for="(project, i) in projects"
         :key="project.name"
+        v-reveal="i * 100"
         :class="[
           'w-52 aspect-square rounded-3xl',
           i % 2 === 0 ? 'sm:translate-y-8' : 'sm:-translate-y-8',
@@ -50,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import DottedLine from "../components/DottedLine.vue";
+import SquiggleLine from "../components/SquiggleLine.vue";
 import Card from "../components/Card.vue";
 import InstagramShowcase from "../components/InstagramShowcase.vue";
 import { projects } from "../data/projectsData";

@@ -48,7 +48,7 @@
 
   /* ── Buttons & Links ── */
   .btn-primary {
-    @apply bg-dark text-white font-bold rounded-3xl px-5 py-2 hover:bg-dark-green transition;
+    @apply bg-dark text-white font-bold rounded-3xl px-5 py-2 hover:bg-dark-green hover:-rotate-1 hover:scale-105 active:scale-95 transition;
   }
 
   .link-green {
@@ -58,5 +58,46 @@
   /* ── Dividers ── */
   .year-divider {
     @apply border-t border-gray-200 pt-12;
+  }
+
+  /* ── Playful hover wobble (cards, icons) ── */
+  .wobble-hover {
+    @apply transition duration-300 ease-out hover:-rotate-2 hover:scale-105;
+  }
+}
+
+/* ── Scroll reveal (v-reveal directive) ── */
+@layer base {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Ambient motion ── */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float {
+    animation: none;
   }
 }

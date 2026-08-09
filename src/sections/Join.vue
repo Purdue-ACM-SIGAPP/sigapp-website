@@ -5,12 +5,13 @@
   >
     <!-- Top Row -->
     <div
+      v-reveal
       class="w-full max-w-screen-xl flex flex-col md:flex-row justify-between gap-8 mb-16"
     >
       <div>
         <h2 class="section-title mb-3">{{ data.title }}</h2>
         <div class="pt-2 pb-6">
-          <DottedLine />
+          <SquiggleLine />
         </div>
       </div>
 
@@ -23,13 +24,14 @@
     <!-- Info Cards -->
     <div class="w-full max-w-screen-xl flex flex-wrap gap-8 justify-center">
       <div
-        v-for="card in data.cards"
+        v-for="(card, i) in data.cards"
         :key="card.title"
+        v-reveal="i * 120"
         class="w-full md:w-[30%] flex"
       >
         <div
           :class="[
-            'rounded-3xl p-6 shadow-sm flex flex-col w-full',
+            'rounded-3xl p-6 shadow-sm flex flex-col w-full wobble-hover',
             card.bg,
             card.text,
           ]"
@@ -45,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import DottedLine from "../components/DottedLine.vue";
+import SquiggleLine from "../components/SquiggleLine.vue";
 import { whatWeDoData } from "../data/homeData";
 
 const data = whatWeDoData;

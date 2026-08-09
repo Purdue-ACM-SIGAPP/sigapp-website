@@ -1,8 +1,8 @@
 <template>
   <section class="w-full max-w-screen-xl mx-auto">
-    <div class="text-center mb-4">
+    <div v-reveal class="text-center mb-4">
       <h2 class="section-title mb-3">From the Gram</h2>
-      <DottedLine class="mx-auto" />
+      <SquiggleLine class="mx-auto" />
       <p class="section-subtitle">
         A few recent moments from
         <a
@@ -20,8 +20,9 @@
       class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start"
     >
       <div
-        v-for="url in reversedPostUrls"
+        v-for="(url, i) in reversedPostUrls"
         :key="url"
+        v-reveal="i * 80"
         class="w-full max-w-[340px] mx-auto"
       >
         <blockquote
@@ -54,7 +55,7 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, watch } from "vue";
-import DottedLine from "./DottedLine.vue";
+import SquiggleLine from "./SquiggleLine.vue";
 import GradientMesh from "./GradientMesh.vue";
 import { instagramPostUrls, instagramProfileUrl } from "../data/instagramData";
 

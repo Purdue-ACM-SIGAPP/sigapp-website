@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center gap-4 max-w-xs">
     <!-- Flip Card -->
     <div
-      class="aspect-square w-full group perspective"
+      class="aspect-square w-full group perspective transition-transform duration-300 ease-out hover:scale-105 hover:-rotate-1"
       @click="isFlipped = !isFlipped"
     >
       <div

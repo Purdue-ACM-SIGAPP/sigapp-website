@@ -8,7 +8,7 @@
       <h2 class="text-3xl md:text-4xl font-bold leading-tight">
         {{ sectionTitle }}
       </h2>
-      <DottedLine class="mt-6" />
+      <SquiggleLine class="mt-6" />
     </div>
 
     <!-- Responsive Layout -->
@@ -18,6 +18,7 @@
       <!-- Left Column: President + FE Leads -->
       <div class="flex flex-col gap-8 items-center">
         <Card
+          v-reveal="0"
           :name="officers[0].name"
           :description="officers[0].role"
           :image="officers[0].image!"
@@ -26,6 +27,7 @@
         />
         <div class="flex gap-4">
           <Card
+            v-reveal="100"
             :name="officers[2].name"
             :description="officers[2].role"
             :image="officers[2].image!"
@@ -33,6 +35,7 @@
             :show-linkedin="officers[2].linkedin"
           />
           <Card
+            v-reveal="150"
             :name="officers[3].name"
             :description="officers[3].role"
             :image="officers[3].image!"
@@ -48,9 +51,10 @@
           <h2 class="text-3xl md:text-4xl font-bold leading-tight">
             {{ sectionTitle }}
           </h2>
-          <DottedLine class="mt-6" />
+          <SquiggleLine class="mt-6" />
         </div>
         <Card
+          v-reveal="50"
           :name="officers[1].name"
           :description="officers[1].role"
           :image="officers[1].image!"
@@ -63,6 +67,7 @@
       <div class="flex gap-8">
         <div class="flex flex-col gap-8">
           <Card
+            v-reveal="200"
             :name="officers[4].name"
             :description="officers[4].role"
             :image="officers[4].image!"
@@ -70,6 +75,7 @@
             :show-linkedin="officers[4].linkedin"
           />
           <Card
+            v-reveal="250"
             :name="officers[5].name"
             :description="officers[5].role"
             :image="officers[5].image!"
@@ -80,6 +86,7 @@
         <div class="flex flex-col gap-8">
           <div class="h-[100px] hidden md:inline" />
           <Card
+            v-reveal="300"
             :name="officers[6].name"
             :description="officers[6].role"
             :image="officers[6].image!"
@@ -87,6 +94,7 @@
             :show-linkedin="officers[6].linkedin"
           />
           <Card
+            v-reveal="350"
             :name="officers[7].name"
             :description="officers[7].role"
             :image="officers[7].image!"
@@ -104,7 +112,7 @@
 </template>
 
 <script setup lang="ts">
-import DottedLine from "../components/DottedLine.vue";
+import SquiggleLine from "../components/SquiggleLine.vue";
 import Card from "../components/Card.vue";
 import { currentOfficers } from "../data/officersData";
 import { currentOfficersSection } from "../data/homeData";

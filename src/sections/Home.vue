@@ -17,7 +17,7 @@
       class="relative z-10 w-full max-w-screen-lg mx-auto px-6 pt-20 grid md:grid-cols-2 items-center gap-12"
     >
       <!-- Text content -->
-      <div class="space-y-6 text-center md:text-left">
+      <div v-reveal class="space-y-6 text-center md:text-left">
         <div>
           <h1 class="text-4xl sm:text-5xl font-bold leading-tight">Purdue</h1>
           <h1
@@ -27,7 +27,7 @@
           </h1>
         </div>
 
-        <DottedLine />
+        <SquiggleLine variant="zigzag" />
 
         <p class="text-base sm:text-lg text-gray-700">
           Purdue's premier app development club!
@@ -57,11 +57,14 @@
           *No experience required — join our Discord to become a member!
         </p>
 
-        <div class="flex gap-4 justify-center md:justify-start pt-2">
+        <div
+          v-reveal="150"
+          class="flex gap-4 justify-center md:justify-start pt-2"
+        >
           <img
             :src="isDiscordHovered ? discord_green : discord"
             alt="Discord"
-            class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            class="w-8 h-8 cursor-pointer transition-transform duration-150 hover:-rotate-12 hover:scale-110 active:scale-90"
             draggable="false"
             @click="openDiscord"
             @mouseenter="isDiscordHovered = true"
@@ -70,7 +73,7 @@
           <img
             :src="isInstagramHovered ? instagram_green : instagram"
             alt="Instagram"
-            class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            class="w-8 h-8 cursor-pointer transition-transform duration-150 hover:rotate-12 hover:scale-110 active:scale-90"
             draggable="false"
             @click="openInstagram"
             @mouseenter="isInstagramHovered = true"
@@ -79,7 +82,7 @@
           <img
             :src="isGithubHovered ? github_green : github"
             alt="GitHub"
-            class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            class="w-8 h-8 cursor-pointer transition-transform duration-150 hover:-rotate-12 hover:scale-110 active:scale-90"
             draggable="false"
             @click="openGithub"
             @mouseenter="isGithubHovered = true"
@@ -88,7 +91,7 @@
           <img
             :src="isLinkedinHovered ? linkedin_green : linkedin"
             alt="LinkedIn"
-            class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
+            class="w-8 h-8 cursor-pointer transition-transform duration-150 hover:rotate-12 hover:scale-110 active:scale-90"
             draggable="false"
             @click="openLinkedin"
             @mouseenter="isLinkedinHovered = true"
@@ -98,11 +101,11 @@
       </div>
 
       <!-- Logo -->
-      <div class="flex justify-center">
+      <div v-reveal="200" class="flex justify-center">
         <img
           :src="logo"
           alt="SIGAPP Logo"
-          class="max-w-xs w-full px-6 sm:px-0"
+          class="max-w-xs w-full px-6 sm:px-0 animate-float"
           draggable="false"
         />
       </div>
@@ -113,7 +116,7 @@
 <script setup>
 import { ref, watch } from "vue";
 import { headerHeight } from "../globals";
-import DottedLine from "../components/DottedLine.vue";
+import SquiggleLine from "../components/SquiggleLine.vue";
 import Banner from "../components/Banner.vue";
 import GradientMesh from "../components/GradientMesh.vue";
 import logo from "../assets/logo.png";

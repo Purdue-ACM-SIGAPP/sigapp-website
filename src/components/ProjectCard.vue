@@ -1,5 +1,5 @@
 <template>
-  <div class="card-base flex flex-col bg-white">
+  <div class="card-base flex flex-col bg-white wobble-hover">
     <div class="aspect-video overflow-hidden bg-gray-100">
       <img
         :src="project.image"
