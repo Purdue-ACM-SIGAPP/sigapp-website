@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center gap-4 max-w-xs">
     <!-- Flip Card -->
     <div
-      class="aspect-square w-full group perspective"
+      class="aspect-square w-full group perspective transition-transform duration-300 ease-out hover:scale-105 hover:-rotate-1"
       @click="isFlipped = !isFlipped"
     >
       <div
@@ -13,7 +13,12 @@
         <div
           class="absolute inset-0 backface-hidden rounded-3xl overflow-hidden shadow-xl"
         >
-          <img :src="image" class="w-full h-full object-cover" />
+          <img
+            :src="image"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <!-- Back Face -->
@@ -27,7 +32,7 @@
           </slot>
           <img
             v-if="props.showLinkedin"
-            :src="isLinkedinHovered ? linkedin_green : linkedin"
+            :src="isLinkedinHovered ? icons.linkedinGreen : icons.linkedin"
             alt="LinkedIn"
             class="w-8 h-8 cursor-pointer transition-transform duration-150 active:scale-90"
             draggable="false"
@@ -48,8 +53,7 @@
 
 <script setup lang="ts">
 import { defineProps, ref } from "vue";
-import linkedin from "../assets/linkedin.png";
-import linkedin_green from "../assets/linkedin_green.png";
+import { icons } from "../content/site";
 
 const props = defineProps<{
   image: string;

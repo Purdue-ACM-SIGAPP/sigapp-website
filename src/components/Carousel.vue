@@ -1,18 +1,14 @@
 <template>
   <div
-    class="relative w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-lg"
+    class="relative w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-lg aspect-video"
   >
-    <div
-      class="flex transition-transform duration-700 ease-in-out"
-      :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
-    >
+    <Transition name="fade" mode="out-in">
       <div
-        v-for="(img, index) in images"
-        :key="index"
-        class="min-w-full aspect-video bg-center bg-cover"
-        :style="{ backgroundImage: `url(${img})` }"
+        :key="currentIndex"
+        class="absolute inset-0 bg-center bg-cover"
+        :style="{ backgroundImage: `url(${images[currentIndex]})` }"
       ></div>
-    </div>
+    </Transition>
 
     <div
       class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2"
@@ -30,14 +26,12 @@
 
 <script>
 import { ref, onMounted, onUnmounted } from "vue";
-import BUCKETLIST from "../assets/BUCKETLIST24-25.jpg";
-import SIGAPP24 from "../assets/SIGAPP24-25.jpg";
-import SIGAPP21 from "../assets/SIGAPP21-22.png";
+import { aboutContent } from "../content/home";
 
 export default {
   name: "Carousel",
   setup() {
-    const images = [SIGAPP24, BUCKETLIST, SIGAPP21];
+    const images = aboutContent.carouselImages;
     const currentIndex = ref(0);
 
     function prev() {
@@ -64,3 +58,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
