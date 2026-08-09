@@ -12,7 +12,7 @@
 @layer components {
   /* ── Layout ── */
   .page-section {
-    @apply min-h-screen bg-white text-dark py-24 px-6;
+    @apply min-h-screen bg-white text-dark pb-24 pt-36 md:pt-24 px-6;
   }
 
   .page-container {

@@ -17,7 +17,7 @@
       class="relative z-10 w-full max-w-screen-lg mx-auto px-6 pt-20 grid md:grid-cols-2 items-center gap-12"
     >
       <!-- Text content -->
-      <div v-reveal class="space-y-6 text-center md:text-left">
+      <div v-reveal class="order-2 md:order-1 space-y-6 text-center md:text-left">
         <div>
           <h1 class="text-4xl sm:text-5xl font-bold leading-tight">
             {{ heroContent.headlineLine1 }}
@@ -103,7 +103,7 @@
       </div>
 
       <!-- Logo -->
-      <div v-reveal="200" class="flex justify-center">
+      <div v-reveal="200" class="order-1 md:order-2 flex justify-center">
         <img
           :src="siteContent.logo"
           alt="SIGAPP Logo"
