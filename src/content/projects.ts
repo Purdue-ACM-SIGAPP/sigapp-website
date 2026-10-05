@@ -22,11 +22,34 @@ export const pastProjectsPageContent = {
 
 export const projects: Project[] = [
   {
-    name: "Boiler Faves",
-    year: "2022–2023",
-    image: "/assets/app/boilerFaves.png",
+    name: "BoilerBuzz",
+    year: "2025–2026",
+    image: "/assets/app/boilerbuzz.png",
     description:
-      "Tag your favorite dining hall meals and get notified when they're served. Now part of the official Purdue Dining app!",
+      "A digital bulletin board for Purdue clubs. Browse event posters, search by tag or date, and pin the events you don't want to miss.",
+    link: "https://github.com/Purdue-ACM-SIGAPP/boilerbuzz-frontend-2526",
+  },
+  {
+    name: "Purdue Graduate Student Government",
+    year: "2025–Present",
+    image: "/assets/app/pgsg.png",
+    description:
+      "A full-stack web app for managing graduate student grant applications, reviews, and decisions.",
+  },
+  {
+    name: "BoilerCrib",
+    year: "2024–Present",
+    image: "/assets/app/boilercrib.png",
+    description:
+      "An interactive housing map of Purdue. View, rate, and review dorms before you choose where to live.",
+    link: "https://github.com/Purdue-ACM-SIGAPP/boilercrib-frontend",
+  },
+  {
+    name: "Bucket List",
+    year: "2024–2025",
+    image: "/assets/app/bucketlist.jpg",
+    description:
+      "Discover and share personal goals with others. Create your own bucket list and join friends on their adventures!",
     link: "https://github.com/Purdue-ACM-SIGAPP",
   },
   {
@@ -46,19 +69,19 @@ export const projects: Project[] = [
     link: "https://github.com/Purdue-ACM-SIGAPP",
   },
   {
+    name: "Boiler Faves",
+    year: "2022–2023",
+    image: "/assets/app/boilerFaves.png",
+    description:
+      "Tag your favorite dining hall meals and get notified when they're served. Now part of the official Purdue Dining app!",
+    link: "https://github.com/Purdue-ACM-SIGAPP",
+  },
+  {
     name: "Purdue Laundry",
     year: "2022–2023",
     image: "/assets/app/purdueLaundry.png",
     description:
       "Check washer and dryer availability in real-time — no more wasted laundry trips.",
-    link: "https://github.com/Purdue-ACM-SIGAPP",
-  },
-  {
-    name: "Bucket List",
-    year: "2024–2025",
-    image: "/assets/app/bucketlist.jpg",
-    description:
-      "Discover and share personal goals with others. Create your own bucket list and join friends on their adventures!",
     link: "https://github.com/Purdue-ACM-SIGAPP",
   },
 ];
