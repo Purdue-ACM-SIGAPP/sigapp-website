@@ -31,9 +31,13 @@
           i % 2 === 0 ? 'sm:translate-y-8' : 'sm:-translate-y-8',
         ]"
         :image="project.image"
-        :description="project.description"
         :name="project.name"
-      />
+      >
+        <span class="year-badge">{{ project.year }}</span>
+        <p class="text-dark font-medium text-sm leading-relaxed">
+          {{ project.description }}
+        </p>
+      </Card>
     </div>
 
     <div class="flex justify-center mt-16">
